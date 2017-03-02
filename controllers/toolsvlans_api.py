@@ -10,6 +10,7 @@ class ToolsVlansApi(object):
         else:
             self.phpipam = PhpIpamApi()
 
+
     def list_vlans(self):
         """ get vlan list """
         uri = 'tools/vlans/'
