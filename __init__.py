@@ -9,8 +9,8 @@ from .controllers import SectionsApi
 from .controllers import SubnetsApi
 from .controllers import ToolsDevicesApi
 from .controllers import ToolsDeviceTypesApi
+from .controllers import ToolsTagsApi
 from .controllers import ToolsVlansApi
 from .controllers import VlansApi
-
 
 from .phpipam import PhpIpamApi

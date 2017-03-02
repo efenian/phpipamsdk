@@ -7,4 +7,5 @@ from .subnets_api import SubnetsApi
 from .toolsdevices_api import ToolsDevicesApi
 from .toolsdevicetypes_api import ToolsDeviceTypesApi
 from .toolsvlans_api import ToolsVlansApi
+from .toolstags_api import ToolsTagsApi
 from .vlans_api import VlansApi
