@@ -36,6 +36,3 @@ class L2DomainsApi(object):
         uri = 'l2domains/' + str(l2domain_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='delete')
         return result
-
-
-    
