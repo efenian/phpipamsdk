@@ -16,4 +16,11 @@ class ToolsDeviceTypesApi(object):
         uri = 'tools/devicetypes/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
+
+
+    def list_devicetype_devices(self, devicetype_id=''):
+        """ get device type devices """
+        uri = 'tools/devicetypes/' + str(devicetype_id) + '/devices/'
+        result = self.phpipam.api_send_request(path=uri, method='get')
+        return result
     

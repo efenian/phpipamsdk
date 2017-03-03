@@ -16,3 +16,17 @@ class ToolsVlansApi(object):
         uri = 'tools/vlans/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
+
+
+    def get_vlan(self, vlan_id=''):
+        """ get vlan list """
+        uri = 'tools/vlans/' + str(vlan_id) +'/'
+        result = self.phpipam.api_send_request(path=uri, method='get')
+        return result
+
+
+    def list_vlan_subnets(self, vlan_id=''):
+        """ get vlan subnet list """
+        uri = 'tools/vlans/' + str(vlan_id) + '/subnets/'
+        result = self.phpipam.api_send_request(path=uri, method='get')
+        return result
