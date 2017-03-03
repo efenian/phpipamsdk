@@ -68,3 +68,11 @@ class SubnetsApi(object):
         uri = 'subnets/' + str(subnet_id) + '/first_free/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
+
+
+    def list_subnet_addresses(self, subnet_id=''):
+        """ get list of addresses in subnet """
+        uri = 'subnets/' + str(subnet_id) + '/addresses/'
+        result = self.phpipam.api_send_request(path=uri, method='get')
+        return result
+        

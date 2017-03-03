@@ -56,6 +56,18 @@ class PhpIpamApi(object):
         self._api_headers['phpipam-token'] = self._api_token
 
 
+    def get_token(self):
+        """ reset auth token """
+        uri = 'user/'
+        self.api_send_request(path=uri, method='get')
+
+
+    def refresh_token(self):
+        """ reset auth token """
+        uri = 'user/'
+        self.api_send_request(path=uri, method='patch')
+
+
     def logout(self):
         """ delete session """
         uri = 'user/'
