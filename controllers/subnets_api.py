@@ -209,6 +209,7 @@ class SubnetsApi(object):
             path=uri, method='patch', payload=payload)
         return result
 
+
     def update_subnet_permissions(self, subnet_id='', permissions=''):
         """ update subnet """
         payload = {
