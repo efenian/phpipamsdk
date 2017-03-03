@@ -18,6 +18,27 @@ class SectionsApi(object):
         return result
 
 
+    def list_section_subnets(self, section_id=''):
+        """ get section subnet list """
+        uri = 'sections/' + section_id + '/subnets/'
+        result = self.phpipam.api_send_request(path=uri, method='get')
+        return result
+
+
+    def list_section_custom_fields(self):
+        """ get custom fields list """
+        uri = 'sections/custom_fields/'
+        result = self.phpipam.api_send_request(path=uri, method='get')
+        return result
+
+
+    def get_section(self, section=''):
+        """ get section by name or id """
+        uri = 'sections/' + str(section) + '/'
+        result = self.phpipam.api_send_request(path=uri, method='get')
+        return result
+
+
     def add_section(self, name='', permissions='', **kwargs):
         """ add new section """
         payload = {
@@ -47,11 +68,4 @@ class SectionsApi(object):
         """ delete section """
         uri = 'sections/' + str(section_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='delete')
-        return result
-
-
-    def list_section_subnets(self, section_id=''):
-        """ get section subnet list """
-        uri = 'sections/' + section_id + '/subnets/'
-        result = self.phpipam.api_send_request(path=uri, method='get')
         return result
