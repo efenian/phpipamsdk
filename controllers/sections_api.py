@@ -64,6 +64,34 @@ class SectionsApi(object):
         return result
 
 
+    def update_section(self, section_id='', **kwargs):
+        """ update section """
+        payload = {
+            'id' : section_id
+        }
+        if 'name' in kwargs:
+            payload['name'] = kwargs['name']
+        if 'permissions' in kwargs:
+            payload['permissions'] = kwargs['permissions']
+        if 'description' in kwargs:
+            payload['description'] = kwargs['description']
+        if 'master_section' in kwargs:
+            if 'master_section' != '0':
+                payload['masterSection'] = kwargs['master_section']
+        if 'vlan' in kwargs:
+            payload['showVLAN'] = kwargs['vlan']
+        if 'vrf' in kwargs:
+            payload['showVRF'] = kwargs['vrf']
+        if 'strict_mode' in kwargs:
+            payload['strictMode'] = kwargs['strict_mode']
+        if 'ordering' in kwargs:
+            payload['subnetOrdering'] = kwargs['ordering']
+        uri = 'sections/'
+        result = self.phpipam.api_send_request(
+            path=uri, method='patch', payload=payload)
+        return result
+
+
     def del_section(self, section_id=''):
         """ delete section """
         uri = 'sections/' + str(section_id) + '/'
