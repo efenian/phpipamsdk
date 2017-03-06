@@ -37,4 +37,44 @@ class VRFsApi(object):
         uri = 'vrf/custom_fields/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
-    
+
+
+    def add_vrf(self, name='', **kwargs):
+        """ add new vrf """
+        payload = {
+            'name' : name
+        }
+        if 'description' in kwargs:
+            payload['description'] = kwargs['description']
+        if 'rd' in kwargs:
+            payload['rd'] = kwargs['rd']
+        if 'sections' in kwargs:
+            payload['sections'] = kwargs['sections']
+        uri = 'vrf/'
+        result = self.phpipam.api_send_request(
+            path=uri, method='post', payload=payload)
+        return result
+
+
+    def update_vrf(self, vrf_id='', **kwargs):
+        """ update vrf """
+        payload = {}
+        if 'name' in kwargs:
+            payload['name'] = kwargs['name']
+        if 'description' in kwargs:
+            payload['description'] = kwargs['description']
+        if 'rd' in kwargs:
+            payload['rd'] = kwargs['rd']
+        if 'sections' in kwargs:
+            payload['sections'] = kwargs['sections']
+        uri = 'vrf/' + str(vrf_id) + '/'
+        result = self.phpipam.api_send_request(
+            path=uri, method='patch', payload=payload)
+        return result
+
+
+    def del_vrf(self, vrf_id=''):
+        """ delete l2domain """
+        uri = 'vrf/' + str(vrf_id) + '/'
+        result = self.phpipam.api_send_request(path=uri, method='delete')
+        return result
