@@ -108,8 +108,69 @@ class AddressesApi(object):
         return result
 
 
-    def del_address(self, address_id=''):
+    def add_address_first_free(self, subnet_id='', tag_id='', **kwargs):
+        """ add first free IP address """
+        payload = {
+            'tag' : tag_id
+        }
+        if 'hostname' in kwargs:
+            payload['hostname'] = kwargs['hostname']
+        if 'owner' in kwargs:
+            payload['owner'] = kwargs['owner']
+        if 'description' in kwargs:
+            payload['description'] = kwargs['description']
+        if 'note' in kwargs:
+            payload['note'] = kwargs['note']
+        if 'device_id' in kwargs:
+            payload['deviceId'] = kwargs['device_id']
+        if 'is_gateway' in kwargs:
+            payload['is_gateway'] = kwargs['is_gateway']
+        if 'mac' in kwargs:
+            payload['mac'] = kwargs['mac']
+        uri = 'addresses/' + str(subnet_id) + '/'
+        result = self.phpipam.api_send_request(
+            path=uri, method='post', payload=payload)
+        return result
+
+
+    def update_address(self, address_id='', **kwargs):
+        """ update IP address """
+        payload = {}
+        if 'tag' in kwargs:
+            payload['tag'] = kwargs['tag']
+        if 'hostname' in kwargs:
+            payload['hostname'] = kwargs['hostname']
+        if 'owner' in kwargs:
+            payload['owner'] = kwargs['owner']
+        if 'description' in kwargs:
+            payload['description'] = kwargs['description']
+        if 'note' in kwargs:
+            payload['note'] = kwargs['note']
+        if 'device_id' in kwargs:
+            payload['deviceId'] = kwargs['device_id']
+        if 'is_gateway' in kwargs:
+            payload['is_gateway'] = kwargs['is_gateway']
+        if 'mac' in kwargs:
+            payload['mac'] = kwargs['mac']
+        uri = 'addresses/' + str(address_id) +'/'
+        result = self.phpipam.api_send_request(
+            path=uri, method='patch', payload=payload)
+        return result
+
+
+    def del_address(self, address_id='', **kwargs):
         """ delete IP address """
+        payload = {}
+        if 'remove_dns' in kwargs:
+            payload['remove_dns'] = kwargs['remove_dns']
         uri = 'addresses/' + str(address_id) + '/'
+        result = self.phpipam.api_send_request(
+            path=uri, method='delete', payload=payload)
+        return result
+
+
+    def del_address_subnet(self, address='', subnet_id=''):
+        """ delete IP address from subnet """
+        uri = 'addresses/' + str(address) + '/' + str(subnet_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='delete')
         return result
