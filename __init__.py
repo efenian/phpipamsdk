@@ -12,5 +12,6 @@ from .controllers import ToolsDeviceTypesApi
 from .controllers import ToolsTagsApi
 from .controllers import ToolsVlansApi
 from .controllers import VlansApi
+from .controllers import VRFsApi
 
 from .phpipam import PhpIpamApi
