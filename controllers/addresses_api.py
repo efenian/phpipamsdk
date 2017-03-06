@@ -11,6 +11,76 @@ class AddressesApi(object):
             self.phpipam = PhpIpamApi()
 
 
+    def get_address(self, address_id=''):
+        """ get IP address """
+        uri = 'addresses/' + str(address_id) + '/'
+        result = self.phpipam.api_send_request(path=uri, method='get')
+        return result
+
+
+    def ping_address(self, address_id=''):
+        """ ping IP address """
+        uri = 'addresses/' + str(address_id) + '/ping/'
+        result = self.phpipam.api_send_request(path=uri, method='get')
+        return result
+
+
+    def get_address_from_subnet(self, address='', subnet_id=''):
+        """ get IP address from subnet """
+        uri = 'addresses/' + str(address) + '/' + str(subnet_id) + '/'
+        result = self.phpipam.api_send_request(path=uri, method='get')
+        return result
+
+
+    def search_address(self, address=''):
+        """ search IP address """
+        uri = 'addresses/search/' + str(address) + '/'
+        result = self.phpipam.api_send_request(path=uri, method='get')
+        return result
+
+
+    def search_hostname(self, hostname=''):
+        """ search for hostname """
+        uri = 'addresses/search/' + str(hostname) + '/'
+        result = self.phpipam.api_send_request(path=uri, method='get')
+        return result
+
+
+    def get_address_first_free_subnet(self, subnet_id=''):
+        """ get first available address from subnet """
+        uri = 'addresses/first_free/' + str(subnet_id) + '/'
+        result = self.phpipam.api_send_request(path=uri, method='get')
+        return result
+
+
+    def list_address_custom_fields(self):
+        """ list address custom fields """
+        uri = 'addresses/custom_fields/'
+        result = self.phpipam.api_send_request(path=uri, method='get')
+        return result
+
+
+    def list_address_tags(self):
+        """ list address tags """
+        uri = 'addresses/tags/'
+        result = self.phpipam.api_send_request(path=uri, method='get')
+        return result
+
+
+    def get_address_tag(self, tag_id=''):
+        """ get specific tag """
+        uri = 'addresses/tags/' + str(tag_id) + '/'
+        result = self.phpipam.api_send_request(path=uri, method='get')
+        return result
+
+
+    def list_addresses_tag(self, tag_id=''):
+        """ list addresses for tag """
+        uri = 'addresses/tags/' + str(tag_id) + '/addresses/'
+        result = self.phpipam.api_send_request(path=uri, method='get')
+        return result
+
+
     def add_address(self, subnet_id='', ip_addr='', tag_id='', **kwargs):
         """ add IP address """
         payload = {
