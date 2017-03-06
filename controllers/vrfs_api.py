@@ -44,12 +44,12 @@ class VRFsApi(object):
         payload = {
             'name' : name
         }
-        if 'description' in kwargs:
-            payload['description'] = kwargs['description']
         if 'rd' in kwargs:
             payload['rd'] = kwargs['rd']
         if 'sections' in kwargs:
             payload['sections'] = kwargs['sections']
+        if 'description' in kwargs:
+            payload['description'] = kwargs['description']
         uri = 'vrf/'
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
@@ -61,12 +61,12 @@ class VRFsApi(object):
         payload = {}
         if 'name' in kwargs:
             payload['name'] = kwargs['name']
-        if 'description' in kwargs:
-            payload['description'] = kwargs['description']
         if 'rd' in kwargs:
             payload['rd'] = kwargs['rd']
         if 'sections' in kwargs:
             payload['sections'] = kwargs['sections']
+        if 'description' in kwargs:
+            payload['description'] = kwargs['description']
         uri = 'vrf/' + str(vrf_id) + '/'
         result = self.phpipam.api_send_request(
             path=uri, method='patch', payload=payload)
