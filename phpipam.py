@@ -3,6 +3,7 @@
 import json
 import requests
 
+
 class PhpIpamException(Exception):
     """ phpipam generic exception class """
     def __init__(self, *args, **kwargs):
@@ -16,7 +17,8 @@ class PhpIpamApi(object):
     _api_token = ''
     _api_verify_ssl = False
     _api_headers = {
-        'accept': 'application/json'
+        'accept': 'application/json',
+        'content-type' : 'application/json'
     }
 
     def __init__(self, api_uri='', api_verify_ssl=True):
@@ -33,7 +35,7 @@ class PhpIpamApi(object):
                 url=self._api_uri + path,
                 auth=auth,
                 headers=self._api_headers,
-                data=payload,
+                data=json.dumps(payload),
                 verify=verify)
         except requests.exceptions.RequestException as exception:
             raise PhpIpamException(exception)
