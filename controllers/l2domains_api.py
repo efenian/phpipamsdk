@@ -18,6 +18,27 @@ class L2DomainsApi(object):
         return result
 
 
+    def get_l2domain(self, domain_id=''):
+        """ get l2domain """
+        uri = 'l2domains/' + str(domain_id) + '/'
+        result = self.phpipam.api_send_request(path=uri, method='get')
+        return result
+
+
+    def get_l2domain_vlans(self, domain_id=''):
+        """ get l2domain vlans """
+        uri = 'l2domains/' + str(domain_id) + '/vlans/'
+        result = self.phpipam.api_send_request(path=uri, method='get')
+        return result
+
+
+    def list_l2domain_custom_fields(self):
+        """ get l2domain custom fields """
+        uri = 'l2domains/custom_fields/'
+        result = self.phpipam.api_send_request(path=uri, method='get')
+        return result
+
+
     def add_l2domain(self, name='', **kwargs):
         """ add new l2domain """
         payload = {
@@ -28,6 +49,19 @@ class L2DomainsApi(object):
         uri = 'l2domains/'
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
+        return result
+
+
+    def update_l2domain(self, domain_id='', **kwargs):
+        """ update l2domain """
+        payload = {}
+        if 'name' in kwargs:
+            payload['name'] = kwargs['name']
+        if 'description' in kwargs:
+            payload['description'] = kwargs['description']
+        uri = 'l2domains/' + str(domain_id) + '/'
+        result = self.phpipam.api_send_request(
+            path=uri, method='patch', payload=payload)
         return result
 
 

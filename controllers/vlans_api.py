@@ -39,9 +39,9 @@ class VlansApi(object):
         return result
 
 
-    def list_vlan_custom_fields(self, vlan_id=''):
+    def list_vlan_custom_fields(self):
         """ list vlan custom fields """
-        uri = 'vlans/' + str(vlan_id) + '/custom_fields/'
+        uri = 'vlans/custom_fields/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
@@ -70,7 +70,7 @@ class VlansApi(object):
 
 
     def update_vlan(self, vlan_id='', **kwargs):
-        """ add new vlan """
+        """ update new vlan """
         payload = {}
         if 'name' in kwargs:
             payload['name'] = kwargs['name']
