@@ -48,7 +48,7 @@ class ToolsVlansApi(object):
         return result
 
 
-    def update_vlan(self, vlan_id='', **kwargs):
+    def update_tools_vlan(self, vlan_id='', **kwargs):
         """ update tools vlan """
         payload = {}
         if 'name' in kwargs:
