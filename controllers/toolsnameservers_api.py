@@ -9,3 +9,10 @@ class ToolsNameserversApi(object):
             self.phpipam = phpipam
         else:
             self.phpipam = PhpIpamApi()
+
+
+    def list_tools_nameservers(self):
+         """ get nameserver list """
+        uri = 'tools/nameservers/'
+        result = self.phpipam.api_send_request(path=uri, method='get')
+        return result
