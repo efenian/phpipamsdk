@@ -11,6 +11,7 @@ from .controllers import ToolsDevicesApi
 from .controllers import ToolsDeviceTypesApi
 from .controllers import ToolsTagsApi
 from .controllers import ToolsVlansApi
+from .controllers import ToolsVRFsApi
 from .controllers import VlansApi
 from .controllers import VRFsApi
 
