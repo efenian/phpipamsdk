@@ -11,20 +11,29 @@ class ToolsDevicesApi(object):
             self.phpipam = PhpIpamApi()
 
 
-    def list_devices(self):
+    def list_tools_devices(self):
         """ get device list """
         uri = 'tools/devices/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
 
-    def add_device(self, hostname='', ip_addr='', devicetype='', **kwargs):
+    def get_tools_device(self, device_id=''):
+        """ get device  """
+        uri = 'tools/devices/' + str(device_id) + '/'
+        result = self.phpipam.api_send_request(path=uri, method='get')
+        return result
+
+
+    def add_tools_device(self, hostname='', **kwargs):
         """ add new device """
         payload = {
             'hostname' : hostname,
-            'ip_addr' : ip_addr,
-            'type' : devicetype
         }
+        if 'ip_addr' in kwargs:
+            payload['ip_addr'] = kwargs['ip_addr']
+        if 'type' in kwargs:
+            payload['type'] = kwargs['type']
         if 'vendor' in kwargs:
             payload['vendor'] = kwargs['vendor']
         if 'model' in kwargs:
@@ -39,7 +48,30 @@ class ToolsDevicesApi(object):
         return result
 
 
-    def del_device(self, device_id=''):
+    def update_tools_device(self, device_id='', **kwargs):
+        """ add new device """
+        payload = {}
+        if 'hostname' in kwargs:
+            payload['hostname'] = kwargs['hostname']
+        if 'ip_addr' in kwargs:
+            payload['ip_addr'] = kwargs['ip_addr']
+        if 'type' in kwargs:
+            payload['type'] = kwargs['type']
+        if 'vendor' in kwargs:
+            payload['vendor'] = kwargs['vendor']
+        if 'model' in kwargs:
+            payload['model'] = kwargs['model']
+        if 'sections' in kwargs:
+            payload['sections'] = kwargs['sections']
+        if 'description' in kwargs:
+            payload['description'] = kwargs['description']
+        uri = 'tools/devices/' + str(device_id) + '/'
+        result = self.phpipam.api_send_request(
+            path=uri, method='post', payload=payload)
+        return result
+
+
+    def del_tools_device(self, device_id=''):
         """ delete device """
         uri = 'tools/devices/' + str(device_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='delete')
