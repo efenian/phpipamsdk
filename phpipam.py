@@ -51,6 +51,15 @@ class PhpIpamApi(object):
                 raise PhpIpamException(response.text)
 
 
+    def build_payload(self, objmap=None, **kwargs):
+        """ build the REST payload """
+        payload = {}
+        for key, val in kwargs.items():
+            if key in objmap:
+                payload[objmap[key]] = val
+        return payload
+
+
     def login(self, auth=''):
         """ authenticate to API """
         result = self.api_send_request(path='user/', auth=auth, method='post')

@@ -13,6 +13,7 @@ class ToolsNameserversApi(object):
         'permissions' : 'permissions'
     }
 
+
     def __init__(self, phpipam=None):
         if phpipam:
             self.phpipam = phpipam
@@ -20,18 +21,12 @@ class ToolsNameserversApi(object):
             self.phpipam = PhpIpamApi()
 
 
-    def _build_payload(self, **kwargs):
-        payload = {}
-        for key, val in kwargs.items():
-            if key in self._objmap:
-                payload[self._objmap[key]] = val
-        return payload
-
     def list_tools_nameservers(self):
         """ get nameserver list """
         uri = 'tools/nameservers/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
+
 
     def get_tools_nameserver(self, nameserver_id=''):
         """ get nameserver """
@@ -39,12 +34,13 @@ class ToolsNameserversApi(object):
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
+
     def add_tools_nameserver(self, name='', **kwargs):
         """ add new devicetype """
         payload = {
             'name' : name,
         }
-        payload.update(self._build_payload(**kwargs))
+        payload.update(self.phpipam.build_payload(self._objmap, **kwargs))
         uri = 'tools/nameservers/'
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
