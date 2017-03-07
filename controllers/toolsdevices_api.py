@@ -67,7 +67,7 @@ class ToolsDevicesApi(object):
             payload['description'] = kwargs['description']
         uri = 'tools/devices/' + str(device_id) + '/'
         result = self.phpipam.api_send_request(
-            path=uri, method='post', payload=payload)
+            path=uri, method='patch', payload=payload)
         return result
 
 

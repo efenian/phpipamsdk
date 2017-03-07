@@ -32,55 +32,35 @@ class ToolsDeviceTypesApi(object):
         return result
 
 
-    def add_tools_devicetype(self, hostname='', **kwargs):
+    def add_tools_devicetype(self, name='', **kwargs):
         """ add new devicetype """
         payload = {
-            'hostname' : hostname,
+            'name' : name,
         }
-        if 'ip_addr' in kwargs:
-            payload['ip_addr'] = kwargs['ip_addr']
-        if 'type' in kwargs:
-            payload['type'] = kwargs['type']
-        if 'vendor' in kwargs:
-            payload['vendor'] = kwargs['vendor']
-        if 'model' in kwargs:
-            payload['model'] = kwargs['model']
-        if 'sections' in kwargs:
-            payload['sections'] = kwargs['sections']
         if 'description' in kwargs:
             payload['description'] = kwargs['description']
-        uri = 'tools/devices/'
+        uri = 'tools/devicetypes/'
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
         return result
 
 
-    def update_tools_devicetype(self, device_id='', **kwargs):
+    def update_tools_devicetype(self, devicetype_id='', **kwargs):
         """ add new device """
         payload = {}
-        if 'hostname' in kwargs:
-            payload['hostname'] = kwargs['hostname']
-        if 'ip_addr' in kwargs:
-            payload['ip_addr'] = kwargs['ip_addr']
-        if 'type' in kwargs:
-            payload['type'] = kwargs['type']
-        if 'vendor' in kwargs:
-            payload['vendor'] = kwargs['vendor']
-        if 'model' in kwargs:
-            payload['model'] = kwargs['model']
-        if 'sections' in kwargs:
-            payload['sections'] = kwargs['sections']
+        if 'name' in kwargs:
+            payload['name'] = kwargs['name']
         if 'description' in kwargs:
             payload['description'] = kwargs['description']
-        uri = 'tools/devices/' + str(device_id) + '/'
+        uri = 'tools/devicetypes/' + str(devicetype_id) + '/'
         result = self.phpipam.api_send_request(
-            path=uri, method='post', payload=payload)
+            path=uri, method='patch', payload=payload)
         return result
 
 
-    def del_tools_devicetype(self, device_id=''):
+    def del_tools_devicetype(self, devicetype_id=''):
         """ delete device """
-        uri = 'tools/devices/' + str(device_id) + '/'
+        uri = 'tools/devicetypes/' + str(devicetype_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='delete')
         return result
         
