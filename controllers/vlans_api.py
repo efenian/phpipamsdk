@@ -70,7 +70,7 @@ class VlansApi(object):
 
 
     def update_vlan(self, vlan_id='', **kwargs):
-        """ update new vlan """
+        """ update vlan """
         payload = {}
         if 'name' in kwargs:
             payload['name'] = kwargs['name']
