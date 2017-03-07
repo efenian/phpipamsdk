@@ -46,7 +46,7 @@ class ToolsDeviceTypesApi(object):
 
 
     def update_tools_devicetype(self, devicetype_id='', **kwargs):
-        """ add new device """
+        """ add new devicetype """
         payload = {}
         if 'name' in kwargs:
             payload['name'] = kwargs['name']
@@ -59,7 +59,7 @@ class ToolsDeviceTypesApi(object):
 
 
     def del_tools_devicetype(self, devicetype_id=''):
-        """ delete device """
+        """ delete devicetype """
         uri = 'tools/devicetypes/' + str(devicetype_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='delete')
         return result
