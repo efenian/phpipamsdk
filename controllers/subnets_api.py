@@ -1,6 +1,7 @@
 """ Subnets Api Calls """
 
 from ..phpipam import PhpIpamApi
+from ..phpipam import build_payload
 
 class SubnetsApi(object):
     """ Subnets Api Class """
@@ -129,7 +130,7 @@ class SubnetsApi(object):
             'subnet' : subnet,
             'mask': mask
         }
-        payload.update(self.phpipam.build_payload(self._objmap, **kwargs))
+        payload.update(build_payload(self._objmap, **kwargs))
         uri = 'subnets/'
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
@@ -139,7 +140,7 @@ class SubnetsApi(object):
     def add_subnet_first_free_subnet(self, subnet_id='', mask='', **kwargs):
         """ add first free subnet under parent subnet """
         payload = {}
-        payload.update(self.phpipam.build_payload(self._objmap, **kwargs))
+        payload.update(build_payload(self._objmap, **kwargs))
         uri = 'subnets/' + str(subnet_id) + '/first_subnet/' + str(mask) +'/'
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
@@ -149,7 +150,7 @@ class SubnetsApi(object):
     def update_subnet(self, subnet_id='', **kwargs):
         """ update subnet """
         payload = {}
-        payload.update(self.phpipam.build_payload(self._objmap, **kwargs))
+        payload.update(build_payload(self._objmap, **kwargs))
         uri = 'subnets/' + str(subnet_id) + '/'
         result = self.phpipam.api_send_request(
             path=uri, method='patch', payload=payload)

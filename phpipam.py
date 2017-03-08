@@ -4,6 +4,15 @@ import json
 import requests
 
 
+def build_payload(objmap=None, **kwargs):
+    """ build the REST payload """
+    payload = {}
+    for key, val in kwargs.items():
+        if key in objmap:
+            payload[objmap[key]] = val
+    return payload
+
+
 class PhpIpamException(Exception):
     """ phpipam generic exception class """
     def __init__(self, *args, **kwargs):
@@ -50,15 +59,6 @@ class PhpIpamApi(object):
                 return result
             else:
                 raise PhpIpamException(response.text)
-
-
-    def build_payload(self, objmap=None, **kwargs):
-        """ build the REST payload """
-        payload = {}
-        for key, val in kwargs.items():
-            if key in objmap:
-                payload[objmap[key]] = val
-        return payload
 
 
     def login(self, auth=''):

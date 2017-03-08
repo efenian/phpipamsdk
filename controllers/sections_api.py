@@ -1,6 +1,7 @@
 """ Sections Api Calls """
 
 from ..phpipam import PhpIpamApi
+from ..phpipam import build_payload
 
 class SectionsApi(object):
     """ Sections Api Class """
@@ -61,7 +62,7 @@ class SectionsApi(object):
         payload = {
             'name' : name
         }
-        payload.update(self.phpipam.build_payload(self._objmap, **kwargs))
+        payload.update(build_payload(self._objmap, **kwargs))
         uri = 'sections/'
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
@@ -71,7 +72,7 @@ class SectionsApi(object):
     def update_section(self, section_id='', **kwargs):
         """ update section """
         payload = {}
-        payload.update(self.phpipam.build_payload(self._objmap, **kwargs))
+        payload.update(build_payload(self._objmap, **kwargs))
         uri = 'sections/' + str(section_id) + '/'
         result = self.phpipam.api_send_request(
             path=uri, method='patch', payload=payload)

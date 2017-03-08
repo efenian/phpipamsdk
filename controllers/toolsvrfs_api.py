@@ -32,7 +32,7 @@ class ToolsVRFsApi(object):
         return result
 
 
-    def add_tools_vrf(self, name='', number='', **kwargs):
+    def add_tools_vrf(self, name='', **kwargs):
         """ add new tools vrf """
         payload = {
             'name' : name
