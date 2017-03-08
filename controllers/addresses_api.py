@@ -1,9 +1,30 @@
 """ Addresses Api Calls """
 
 from ..phpipam import PhpIpamApi
+from ..phpipam import build_payload
 
 class AddressesApi(object):
     """ Addresses Api Class """
+
+    _objmap = {
+        'id' : 'id',
+        'subnet_id' : 'subnetId',
+        'ip' : 'ip',
+        'is_gateway' : 'is_gateway',
+        'description' : 'description',
+        'hostname' : 'hostname',
+        'mac' : 'mac',
+        'owner' : 'owner',
+        'tag_id' : 'tag',
+        'ptr_ignore' : 'PTRignore',
+        'ptr_id' : 'PTR',
+        'device_id' : 'deviceId',
+        'port' : 'port',
+        'note' : 'note',
+        'exclude_ping' : 'excludePing'
+    }
+
+
     def __init__(self, phpipam=None):
         if phpipam:
             self.phpipam = phpipam
@@ -81,52 +102,23 @@ class AddressesApi(object):
         return result
 
 
-    def add_address(self, subnet_id='', ip_addr='', tag_id='', **kwargs):
+    def add_address(self, subnet_id='', ip_addr='', **kwargs):
         """ add IP address """
         payload = {
             'subnetId' : str(subnet_id),
-            'ip' : ip_addr,
-            'tag' : tag_id
+            'ip' : ip_addr
         }
-        if 'hostname' in kwargs:
-            payload['hostname'] = kwargs['hostname']
-        if 'owner' in kwargs:
-            payload['owner'] = kwargs['owner']
-        if 'description' in kwargs:
-            payload['description'] = kwargs['description']
-        if 'note' in kwargs:
-            payload['note'] = kwargs['note']
-        if 'device_id' in kwargs:
-            payload['deviceId'] = kwargs['device_id']
-        if 'is_gateway' in kwargs:
-            payload['is_gateway'] = kwargs['is_gateway']
-        if 'mac' in kwargs:
-            payload['mac'] = kwargs['mac']
+        payload.update(build_payload(self._objmap, **kwargs))
         uri = 'addresses/'
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
         return result
 
 
-    def add_address_first_free(self, subnet_id='', tag_id='', **kwargs):
+    def add_address_first_free(self, subnet_id='', **kwargs):
         """ add first free IP address """
-        payload = {
-            'tag' : tag_id
-        }
-        if 'hostname' in kwargs:
-            payload['hostname'] = kwargs['hostname']
-        if 'owner' in kwargs:
-            payload['owner'] = kwargs['owner']
-        if 'description' in kwargs:
-            payload['description'] = kwargs['description']
-        if 'note' in kwargs:
-            payload['note'] = kwargs['note']
-        if 'device_id' in kwargs:
-            payload['deviceId'] = kwargs['device_id']
-        if 'is_gateway' in kwargs:
-            payload['is_gateway'] = kwargs['is_gateway']
-        if 'mac' in kwargs:
-            payload['mac'] = kwargs['mac']
+        payload = {}
+        payload.update(build_payload(self._objmap, **kwargs))
         uri = 'addresses/' + str(subnet_id) + '/'
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
@@ -136,22 +128,7 @@ class AddressesApi(object):
     def update_address(self, address_id='', **kwargs):
         """ update IP address """
         payload = {}
-        if 'tag' in kwargs:
-            payload['tag'] = kwargs['tag']
-        if 'hostname' in kwargs:
-            payload['hostname'] = kwargs['hostname']
-        if 'owner' in kwargs:
-            payload['owner'] = kwargs['owner']
-        if 'description' in kwargs:
-            payload['description'] = kwargs['description']
-        if 'note' in kwargs:
-            payload['note'] = kwargs['note']
-        if 'device_id' in kwargs:
-            payload['deviceId'] = kwargs['device_id']
-        if 'is_gateway' in kwargs:
-            payload['is_gateway'] = kwargs['is_gateway']
-        if 'mac' in kwargs:
-            payload['mac'] = kwargs['mac']
+        payload.update(build_payload(self._objmap, **kwargs))
         uri = 'addresses/' + str(address_id) +'/'
         result = self.phpipam.api_send_request(
             path=uri, method='patch', payload=payload)
