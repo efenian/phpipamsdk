@@ -1,9 +1,18 @@
 """ L2Domains Api Calls """
 
 from ..phpipam import PhpIpamApi
+from ..phpipam import build_payload
 
 class L2DomainsApi(object):
     """ L2Domains Api Class """
+
+    _objmap = {
+        'id' : 'id',
+        'name' : 'name',
+        'description' : 'description'
+    }
+
+
     def __init__(self, phpipam=None):
         if phpipam:
             self.phpipam = phpipam
@@ -44,8 +53,7 @@ class L2DomainsApi(object):
         payload = {
             'name' : name
         }
-        if 'description' in kwargs:
-            payload['description'] = kwargs['description']
+        payload.update(build_payload(self._objmap, **kwargs))
         uri = 'l2domains/'
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
@@ -55,10 +63,7 @@ class L2DomainsApi(object):
     def update_l2domain(self, domain_id='', **kwargs):
         """ update l2domain """
         payload = {}
-        if 'name' in kwargs:
-            payload['name'] = kwargs['name']
-        if 'description' in kwargs:
-            payload['description'] = kwargs['description']
+        payload.update(build_payload(self._objmap, **kwargs))
         uri = 'l2domains/' + str(domain_id) + '/'
         result = self.phpipam.api_send_request(
             path=uri, method='patch', payload=payload)

@@ -1,9 +1,20 @@
 """ Vlans Api Calls """
 
 from ..phpipam import PhpIpamApi
+from ..phpipam import build_payload
 
 class VlansApi(object):
     """ Vlans Api Class """
+
+    _objmap = {
+        'id' : 'id',
+        'domain_id' : 'domainId',
+        'name' : 'name',
+        'number' : 'number',
+        'description' : 'description'
+    }
+
+
     def __init__(self, phpipam=None):
         if phpipam:
             self.phpipam = phpipam
@@ -59,10 +70,7 @@ class VlansApi(object):
             'name' : name,
             'number': str(number)
         }
-        if 'description' in kwargs:
-            payload['description'] = kwargs['description']
-        if 'domain_id' in kwargs:
-            payload['domainId'] = str(kwargs['domain_id'])
+        payload.update(build_payload(self._objmap, **kwargs))
         uri = 'vlans/'
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
@@ -72,14 +80,7 @@ class VlansApi(object):
     def update_vlan(self, vlan_id='', **kwargs):
         """ update vlan """
         payload = {}
-        if 'name' in kwargs:
-            payload['name'] = kwargs['name']
-        if 'number' in kwargs:
-            payload['number'] = kwargs['number']
-        if 'description' in kwargs:
-            payload['description'] = kwargs['description']
-        if 'domain_id' in kwargs:
-            payload['domainId'] = str(kwargs['domain_id'])
+        payload.update(build_payload(self._objmap, **kwargs))
         uri = 'vlans/' + str(vlan_id) + '/'
         result = self.phpipam.api_send_request(
             path=uri, method='patch', payload=payload)
