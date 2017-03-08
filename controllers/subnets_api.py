@@ -4,11 +4,40 @@ from ..phpipam import PhpIpamApi
 
 class SubnetsApi(object):
     """ Subnets Api Class """
+
+    _objmap = {
+        'id' : 'id',
+        'subnet' : 'subnet',
+        'mask' : 'mask',
+        'description' : 'description',
+        'section_id' : 'sectionId',
+        'linked_subnet_id' : 'linked_subnet',
+        'vlan_id' : 'vlanId',
+        'vrf_id' : 'vrfId',
+        'master_subnet_id' : 'masterSubnetId',
+        'nameserver_id' : 'nameserverId',
+        'show_name' : 'showName',
+        'permissions' : 'permissions',
+        'dns_recursive' : 'DNSrecursive',
+        'dns_records' : 'DNSrecords',
+        'allow_requests' : 'allowRequests',
+        'scan_agent_id' : 'scanAgent',
+        'ping_subnet' : 'pingSubnet',
+        'discover_subnet' : 'discoverSubnet',
+        'is_folder' : 'isFolder',
+        'is_full' : 'isFull',
+        'state_id' : 'state',
+        'threshold' : 'threshold',
+        'location' : 'location'
+    }
+
+
     def __init__(self, phpipam=None):
         if phpipam:
             self.phpipam = phpipam
         else:
             self.phpipam = PhpIpamApi()
+
 
     def get_subnet(self, subnet_id=''):
         """ get subnet details based on ID """
@@ -94,34 +123,13 @@ class SubnetsApi(object):
         return result
 
 
-    def add_subnet(self, subnet='', mask='', section='',
-                   permissions='', **kwargs):
+    def add_subnet(self, subnet='', mask='', **kwargs):
         """ add new subnet """
         payload = {
             'subnet' : subnet,
-            'mask': mask,
-            'sectionId': section,
-            'permissions': permissions
+            'mask': mask
         }
-        if 'description' in kwargs:
-            payload['description'] = kwargs['description']
-        if 'master_subnet' in kwargs:
-            if 'master_subnet' != '0':
-                payload['masterSubnetId'] = kwargs['master_subnet']
-        if 'vlan' in kwargs:
-            payload['vlanId'] = kwargs['vlan']
-        if 'device' in kwargs:
-            payload['device'] = kwargs['device']
-        if 'show_name' in kwargs:
-            payload['showName'] = kwargs['show_name']
-        if 'ping_subnet' in kwargs:
-            payload['pingSubnet'] = kwargs['ping_subnet']
-        if 'discover_subnet' in kwargs:
-            payload['discoverSubnet'] = kwargs['discover_subnet']
-        if 'scan_agent' in kwargs:
-            payload['scanAgent'] = kwargs['scan_agent']
-        if 'full' in kwargs:
-            payload['isFull'] = kwargs['full']
+        payload.update(self.phpipam.build_payload(self._objmap, **kwargs))
         uri = 'subnets/'
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
@@ -131,25 +139,7 @@ class SubnetsApi(object):
     def add_subnet_first_free_subnet(self, subnet_id='', mask='', **kwargs):
         """ add first free subnet under parent subnet """
         payload = {}
-        if 'description' in kwargs:
-            payload['description'] = kwargs['description']
-        if 'master_subnet' in kwargs:
-            if 'master_subnet' != '0':
-                payload['masterSubnetId'] = kwargs['master_subnet']
-        if 'vlan' in kwargs:
-            payload['vlanId'] = kwargs['vlan']
-        if 'device' in kwargs:
-            payload['device'] = kwargs['device']
-        if 'show_name' in kwargs:
-            payload['showName'] = kwargs['show_name']
-        if 'ping_subnet' in kwargs:
-            payload['pingSubnet'] = kwargs['ping_subnet']
-        if 'discover_subnet' in kwargs:
-            payload['discoverSubnet'] = kwargs['discover_subnet']
-        if 'scan_agent' in kwargs:
-            payload['scanAgent'] = kwargs['scan_agent']
-        if 'full' in kwargs:
-            payload['isFull'] = kwargs['full']
+        payload.update(self.phpipam.build_payload(self._objmap, **kwargs))
         uri = 'subnets/' + str(subnet_id) + '/first_subnet/' + str(mask) +'/'
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
@@ -158,31 +148,9 @@ class SubnetsApi(object):
 
     def update_subnet(self, subnet_id='', **kwargs):
         """ update subnet """
-        payload = {
-            'subnetId' : subnet_id,
-        }
-        if 'permissions' in kwargs:
-            payload['permissions'] = kwargs['permissions']
-        if 'description' in kwargs:
-            payload['description'] = kwargs['description']
-        if 'master_subnet' in kwargs:
-            if 'master_subnet' != '0':
-                payload['masterSubnetId'] = kwargs['master_subnet']
-        if 'vlan' in kwargs:
-            payload['vlanId'] = kwargs['vlan']
-        if 'device' in kwargs:
-            payload['device'] = kwargs['device']
-        if 'show_name' in kwargs:
-            payload['showName'] = kwargs['show_name']
-        if 'ping_subnet' in kwargs:
-            payload['pingSubnet'] = kwargs['ping_subnet']
-        if 'discover_subnet' in kwargs:
-            payload['discoverSubnet'] = kwargs['discover_subnet']
-        if 'scan_agent' in kwargs:
-            payload['scanAgent'] = kwargs['scan_agent']
-        if 'full' in kwargs:
-            payload['isFull'] = kwargs['full']
-        uri = 'subnets/'
+        payload = {}
+        payload.update(self.phpipam.build_payload(self._objmap, **kwargs))
+        uri = 'subnets/' + str(subnet_id) + '/'
         result = self.phpipam.api_send_request(
             path=uri, method='patch', payload=payload)
         return result

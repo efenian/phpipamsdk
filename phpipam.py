@@ -46,6 +46,7 @@ class PhpIpamApi(object):
             elif status_code == 201:
                 result = json.loads(response.text)
                 result['location'] = response.headers['Location']
+                result['id'] = response.headers['Location'].split('/')[-2]
                 return result
             else:
                 raise PhpIpamException(response.text)

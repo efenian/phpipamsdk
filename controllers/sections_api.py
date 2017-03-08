@@ -4,6 +4,23 @@ from ..phpipam import PhpIpamApi
 
 class SectionsApi(object):
     """ Sections Api Class """
+
+    _objmap = {
+        'id' : 'id',
+        'name' : 'name',
+        'description' : 'description',
+        'master_section_id' : 'masterSection',
+        'permissions' : 'permissions',
+        'strict_mode' : 'strictMode',
+        'subnet_ordering' : 'subnetOrdering',
+        'order' : 'order',
+        'show_vlan' : 'showVLAN',
+        'show_vrf' : 'showVRF',
+        'show_supernet_only' : 'showSupernetOnly',
+        'dns_id' : 'DNS'
+    }
+
+
     def __init__(self, phpipam=None):
         if phpipam:
             self.phpipam = phpipam
@@ -39,25 +56,12 @@ class SectionsApi(object):
         return result
 
 
-    def add_section(self, name='', permissions='', **kwargs):
+    def add_section(self, name='', **kwargs):
         """ add new section """
         payload = {
-            'name' : name,
-            'permissions': permissions
+            'name' : name
         }
-        if 'description' in kwargs:
-            payload['description'] = kwargs['description']
-        if 'master_section' in kwargs:
-            if 'master_section' != '0':
-                payload['masterSection'] = kwargs['master_section']
-        if 'vlan' in kwargs:
-            payload['showVLAN'] = kwargs['vlan']
-        if 'vrf' in kwargs:
-            payload['showVRF'] = kwargs['vrf']
-        if 'strict_mode' in kwargs:
-            payload['strictMode'] = kwargs['strict_mode']
-        if 'ordering' in kwargs:
-            payload['subnetOrdering'] = kwargs['ordering']
+        payload.update(self.phpipam.build_payload(self._objmap, **kwargs))
         uri = 'sections/'
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
@@ -66,27 +70,9 @@ class SectionsApi(object):
 
     def update_section(self, section_id='', **kwargs):
         """ update section """
-        payload = {
-            'id' : section_id
-        }
-        if 'name' in kwargs:
-            payload['name'] = kwargs['name']
-        if 'permissions' in kwargs:
-            payload['permissions'] = kwargs['permissions']
-        if 'description' in kwargs:
-            payload['description'] = kwargs['description']
-        if 'master_section' in kwargs:
-            if 'master_section' != '0':
-                payload['masterSection'] = kwargs['master_section']
-        if 'vlan' in kwargs:
-            payload['showVLAN'] = kwargs['vlan']
-        if 'vrf' in kwargs:
-            payload['showVRF'] = kwargs['vrf']
-        if 'strict_mode' in kwargs:
-            payload['strictMode'] = kwargs['strict_mode']
-        if 'ordering' in kwargs:
-            payload['subnetOrdering'] = kwargs['ordering']
-        uri = 'sections/'
+        payload = {}
+        payload.update(self.phpipam.build_payload(self._objmap, **kwargs))
+        uri = 'sections/' + str(section_id) + '/'
         result = self.phpipam.api_send_request(
             path=uri, method='patch', payload=payload)
         return result
