@@ -10,6 +10,7 @@ from .controllers import SubnetsApi
 from .controllers import ToolsDevicesApi
 from .controllers import ToolsDeviceTypesApi
 from .controllers import ToolsNameserversApi
+from .controllers import ToolsScanagentsApi
 from .controllers import ToolsTagsApi
 from .controllers import ToolsVlansApi
 from .controllers import ToolsVRFsApi

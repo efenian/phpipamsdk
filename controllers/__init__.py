@@ -7,6 +7,7 @@ from .subnets_api import SubnetsApi
 from .toolsdevices_api import ToolsDevicesApi
 from .toolsdevicetypes_api import ToolsDeviceTypesApi
 from .toolsnameservers_api import ToolsNameserversApi
+from .toolsscanagents_api import ToolsScanagentsApi
 from .toolstags_api import ToolsTagsApi
 from .toolsvlans_api import ToolsVlansApi
 from .toolsvrfs_api import ToolsVRFsApi
