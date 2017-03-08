@@ -1,9 +1,21 @@
 """ Tools Tags Api Calls """
 
 from ..phpipam import PhpIpamApi
+from ..phpipam import build_payload
 
 class ToolsTagsApi(object):
     """ Tools Tags Api Class """
+
+    _objmap = {
+        'id' : 'id',
+        'type' : 'type',
+        'showtags' : 'showtags',
+        'bgcolor' : 'bgcolor',
+        'fgcolor' : 'fgcolor',
+        'compress' : 'compress'
+    }
+
+
     def __init__(self, phpipam=None):
         if phpipam:
             self.phpipam = phpipam
@@ -30,14 +42,7 @@ class ToolsTagsApi(object):
         payload = {
             'type' : name
         }
-        if 'showtags' in kwargs:
-            payload['showtags'] = kwargs['showtags']
-        if 'bgcolor' in kwargs:
-            payload['bgcolor'] = kwargs['bgcolor']
-        if 'fgcolor' in kwargs:
-            payload['fgcolor'] = kwargs['fgcolor']
-        if 'compress' in kwargs:
-            payload['compress'] = kwargs['compress']
+        payload.update(build_payload(self._objmap, **kwargs))
         uri = 'tools/tags/'
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
@@ -47,16 +52,7 @@ class ToolsTagsApi(object):
     def update_tools_tag(self, tag_id='', **kwargs):
         """ update tag """
         payload = {}
-        if 'name' in kwargs:
-            payload['type'] = kwargs['name']
-        if 'showtags' in kwargs:
-            payload['showtags'] = kwargs['showtags']
-        if 'bgcolor' in kwargs:
-            payload['bgcolor'] = kwargs['bgcolor']
-        if 'fgcolor' in kwargs:
-            payload['fgcolor'] = kwargs['fgcolor']
-        if 'compress' in kwargs:
-            payload['compress'] = kwargs['compress']
+        payload.update(build_payload(self._objmap, **kwargs))
         uri = 'tools/tags/' + str(tag_id) + '/'
         result = self.phpipam.api_send_request(
             path=uri, method='patch', payload=payload)

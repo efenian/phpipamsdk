@@ -16,6 +16,7 @@ class VlansApi(object):
 
 
     def __init__(self, phpipam=None):
+        """ vlans constructor """
         if phpipam:
             self.phpipam = phpipam
         else:

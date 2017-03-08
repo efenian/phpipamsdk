@@ -1,9 +1,20 @@
 """ Tools VRFs Api Calls """
 
 from ..phpipam import PhpIpamApi
+from ..phpipam import build_payload
 
 class ToolsVRFsApi(object):
     """ Tools VRFs Api Class """
+
+    _objmap = {
+        'id' : 'id',
+        'name' : 'name',
+        'rd' : 'rd',
+        'description' : 'description',
+        'sections' : 'sections'
+    }
+
+
     def __init__(self, phpipam=None):
         if phpipam:
             self.phpipam = phpipam
@@ -37,12 +48,7 @@ class ToolsVRFsApi(object):
         payload = {
             'name' : name
         }
-        if 'rd' in kwargs:
-            payload['rd'] = kwargs['rd']
-        if 'sections' in kwargs:
-            payload['sections'] = kwargs['sections']
-        if 'description' in kwargs:
-            payload['description'] = kwargs['description']
+        payload.update(build_payload(self._objmap, **kwargs))
         uri = 'tools/vrfs/'
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
@@ -52,14 +58,7 @@ class ToolsVRFsApi(object):
     def update_tools_vrf(self, vrf_id='', **kwargs):
         """ update tools vrf """
         payload = {}
-        if 'name' in kwargs:
-            payload['name'] = kwargs['name']
-        if 'rd' in kwargs:
-            payload['rd'] = kwargs['rd']
-        if 'sections' in kwargs:
-            payload['sections'] = kwargs['sections']
-        if 'description' in kwargs:
-            payload['description'] = kwargs['description']
+        payload.update(build_payload(self._objmap, **kwargs))
         uri = 'tools/vrfs/' + str(vrf_id) + '/'
         result = self.phpipam.api_send_request(
             path=uri, method='patch', payload=payload)

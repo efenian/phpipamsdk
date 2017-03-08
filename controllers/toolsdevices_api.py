@@ -1,9 +1,23 @@
 """ Tools Devices Api Calls """
 
 from ..phpipam import PhpIpamApi
+from ..phpipam import build_payload
 
 class ToolsDevicesApi(object):
     """ Tools Devices Api Class """
+
+    _objmap = {
+        'id' : 'id',
+        'hostname' : 'hostname',
+        'ip_addr' : 'ip_addr',
+        'type_id' : 'type',
+        'vendor' : 'vendor',
+        'model' : 'model',
+        'sections' : 'sections',
+        'description' : 'description'
+    }
+
+
     def __init__(self, phpipam=None):
         if phpipam:
             self.phpipam = phpipam
@@ -30,18 +44,7 @@ class ToolsDevicesApi(object):
         payload = {
             'hostname' : hostname,
         }
-        if 'ip_addr' in kwargs:
-            payload['ip_addr'] = kwargs['ip_addr']
-        if 'type' in kwargs:
-            payload['type'] = kwargs['type']
-        if 'vendor' in kwargs:
-            payload['vendor'] = kwargs['vendor']
-        if 'model' in kwargs:
-            payload['model'] = kwargs['model']
-        if 'sections' in kwargs:
-            payload['sections'] = kwargs['sections']
-        if 'description' in kwargs:
-            payload['description'] = kwargs['description']
+        payload.update(build_payload(self._objmap, **kwargs))
         uri = 'tools/devices/'
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
@@ -49,22 +52,9 @@ class ToolsDevicesApi(object):
 
 
     def update_tools_device(self, device_id='', **kwargs):
-        """ add new device """
+        """ update device """
         payload = {}
-        if 'hostname' in kwargs:
-            payload['hostname'] = kwargs['hostname']
-        if 'ip_addr' in kwargs:
-            payload['ip_addr'] = kwargs['ip_addr']
-        if 'type' in kwargs:
-            payload['type'] = kwargs['type']
-        if 'vendor' in kwargs:
-            payload['vendor'] = kwargs['vendor']
-        if 'model' in kwargs:
-            payload['model'] = kwargs['model']
-        if 'sections' in kwargs:
-            payload['sections'] = kwargs['sections']
-        if 'description' in kwargs:
-            payload['description'] = kwargs['description']
+        payload.update(build_payload(self._objmap, **kwargs))
         uri = 'tools/devices/' + str(device_id) + '/'
         result = self.phpipam.api_send_request(
             path=uri, method='patch', payload=payload)

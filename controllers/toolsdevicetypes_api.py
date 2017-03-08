@@ -1,9 +1,18 @@
 """ Tools Device Types Api Calls """
 
 from ..phpipam import PhpIpamApi
+from ..phpipam import build_payload
 
 class ToolsDeviceTypesApi(object):
     """ Tools Devices Api Class """
+
+    _objmap = {
+        'id' : 'id',
+        'name' : 'name',
+        'description' : 'description'
+    }
+
+
     def __init__(self, phpipam=None):
         if phpipam:
             self.phpipam = phpipam
@@ -37,8 +46,7 @@ class ToolsDeviceTypesApi(object):
         payload = {
             'name' : name,
         }
-        if 'description' in kwargs:
-            payload['description'] = kwargs['description']
+        payload.update(build_payload(self._objmap, **kwargs))
         uri = 'tools/devicetypes/'
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
@@ -46,12 +54,9 @@ class ToolsDeviceTypesApi(object):
 
 
     def update_tools_devicetype(self, devicetype_id='', **kwargs):
-        """ add new devicetype """
+        """ update devicetype """
         payload = {}
-        if 'name' in kwargs:
-            payload['name'] = kwargs['name']
-        if 'description' in kwargs:
-            payload['description'] = kwargs['description']
+        payload.update(build_payload(self._objmap, **kwargs))
         uri = 'tools/devicetypes/' + str(devicetype_id) + '/'
         result = self.phpipam.api_send_request(
             path=uri, method='patch', payload=payload)
