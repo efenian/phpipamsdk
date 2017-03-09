@@ -29,7 +29,7 @@ class SubnetsApi(object):
         'is_full' : 'isFull',
         'state_id' : 'state',
         'threshold' : 'threshold',
-        'location' : 'location'
+        'location_id' : 'location'
     }
 
 

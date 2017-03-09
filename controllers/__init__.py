@@ -2,6 +2,7 @@
 
 from .addresses_api import AddressesApi
 from .l2domains_api import L2DomainsApi
+from .prefixes_api import PrefixesApi
 from .sections_api import SectionsApi
 from .subnets_api import SubnetsApi
 from .toolsdevices_api import ToolsDevicesApi

@@ -10,10 +10,20 @@ class ToolsDevicesApi(object):
         'id' : 'id',
         'hostname' : 'hostname',
         'ip_addr' : 'ip_addr',
+        'ip' : 'ip',
         'type_id' : 'type',
         'vendor' : 'vendor',
         'model' : 'model',
         'sections' : 'sections',
+        'location_id' : 'location',
+        'rack_id' : 'rack',
+        'rack_size' : 'rack_size',
+        'rack_start' : 'rack_start',
+        'snmp_community' : 'snmp_community',
+        'snmp_port' : 'snmp_port',
+        'snmp_queries' : 'snmp_queries',
+        'snmp_timeout' : 'snmp_timeout',
+        'snmp_version' : 'snmp_version',
         'description' : 'description'
     }
 

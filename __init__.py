@@ -5,6 +5,7 @@ Eric Donohue <edonohue@brocade.com>
 
 from .controllers import AddressesApi
 from .controllers import L2DomainsApi
+from .controllers import PrefixesApi
 from .controllers import SectionsApi
 from .controllers import SubnetsApi
 from .controllers import ToolsDevicesApi
