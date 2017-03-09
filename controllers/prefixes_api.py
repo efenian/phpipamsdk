@@ -54,7 +54,7 @@ class PrefixesApi(object):
 
     def list_prefixes_subnets(self, customer_type=''):
         """ get subnets list used to deliver new subnets """
-        uri = 'tools/prefixes/' + str(customer_type) + '/'
+        uri = 'prefix/' + str(customer_type) + '/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
@@ -62,7 +62,7 @@ class PrefixesApi(object):
     def list_prefixes_subnets_version(self, customer_type='', ip_version=''):
         """ get subnets list used to deliver new subnets by version """
         uri = (
-            'tools/prefixes/' + str(customer_type)
+            'prefix/' + str(customer_type)
             + '/' + str(ip_version) +'/')
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
@@ -70,7 +70,7 @@ class PrefixesApi(object):
 
     def list_prefixes_address(self, customer_type=''):
         """ get subnets list used to deliver new address """
-        uri = 'tools/prefixes/' + str(customer_type) + '/address/'
+        uri = 'prefix/' + str(customer_type) + '/address/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
@@ -78,7 +78,7 @@ class PrefixesApi(object):
     def list_prefixes_address_version(self, customer_type='', ip_version=''):
         """ get subnets list used to deliver new address by version """
         uri = (
-            'tools/prefixes/' + str(customer_type)
+            'prefix/' + str(customer_type)
             + '/address/' + str(ip_version) +'/')
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
@@ -88,7 +88,7 @@ class PrefixesApi(object):
             self, customer_type='', ip_version='', mask=''):
         """ get first available subnet """
         uri = (
-            'tools/prefixes/' + str(customer_type)
+            'prefix/' + str(customer_type)
             + '/' + str(ip_version) +'/' + str(mask) + '/')
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
@@ -97,7 +97,7 @@ class PrefixesApi(object):
     def get_prefixes_first_free_address(self, customer_type='', ip_version=''):
         """ get first available address """
         uri = (
-            'tools/prefixes/' + str(customer_type)
+            'prefix/' + str(customer_type)
             + '/' + str(ip_version) +'/address/')
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
@@ -109,7 +109,7 @@ class PrefixesApi(object):
         payload = {}
         payload.update(build_payload(self._objmap, **kwargs))
         uri = (
-            'tools/prefixes/' + str(customer_type)
+            'prefix/' + str(customer_type)
             + '/' + str(ip_version) +'/' + str(mask) + '/')
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
@@ -122,7 +122,7 @@ class PrefixesApi(object):
         payload = {}
         payload.update(build_payload(self._objmap, **kwargs))
         uri = (
-            'tools/prefixes/' + str(customer_type)
+            'prefix/' + str(customer_type)
             + '/' + str(ip_version) +'/address/')
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
