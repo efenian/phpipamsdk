@@ -4,7 +4,7 @@ from ..phpipam import PhpIpamApi
 from ..phpipam import build_payload
 
 class ToolsScanagentsApi(object):
-    """ Tools Tags Api Class """
+    """ Tools Scanagents Api Class """
 
     _objmap = {
         'id' : 'id',
