@@ -8,6 +8,7 @@ from .toolsdevices_api import ToolsDevicesApi
 from .toolsdevicetypes_api import ToolsDeviceTypesApi
 from .toolslocations_api import ToolsLocationsApi
 from .toolsnameservers_api import ToolsNameserversApi
+from .toolsnat_api import ToolsNATApi
 from .toolsracks_api import ToolsRacksApi
 from .toolsscanagents_api import ToolsScanagentsApi
 from .toolstags_api import ToolsTagsApi

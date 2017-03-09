@@ -36,7 +36,7 @@ class ToolsRacksApi(object):
         return result
 
 
-    def get_tools_rack_devices(self, rack_id=''):
+    def list_tools_rack_devices(self, rack_id=''):
         """ get racks device list """
         uri = 'tools/racks/' + str(rack_id) + '/devices/'
         result = self.phpipam.api_send_request(path=uri, method='get')

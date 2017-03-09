@@ -38,13 +38,16 @@ class PhpIpamApi(object):
     def api_send_request(self, path='', method='', auth='', payload=''):
         """ send HTTP REST request """
         verify = self._api_verify_ssl
+        if method == 'post' or method == 'patch':
+            temp = json.dumps(payload)
+            payload = temp
         try:
             response = requests.request(
                 method=method,
                 url=self._api_uri + path,
                 auth=auth,
                 headers=self._api_headers,
-                data=json.dumps(payload),
+                data=payload,
                 verify=verify)
         except requests.exceptions.RequestException as exception:
             raise PhpIpamException(exception)

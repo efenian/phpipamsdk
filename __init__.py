@@ -11,6 +11,7 @@ from .controllers import ToolsDevicesApi
 from .controllers import ToolsDeviceTypesApi
 from .controllers import ToolsLocationsApi
 from .controllers import ToolsNameserversApi
+from .controllers import ToolsNATApi
 from .controllers import ToolsRacksApi
 from .controllers import ToolsScanagentsApi
 from .controllers import ToolsTagsApi

@@ -37,21 +37,21 @@ class ToolsLocationsApi(object):
         return result
 
 
-    def get_tools_location_subnets(self, location_id=''):
+    def list_tools_location_subnets(self, location_id=''):
         """ get locations subnets list """
         uri = 'tools/locations/' + str(location_id) + '/subnets/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
 
-    def get_tools_location_devices(self, location_id=''):
+    def list_tools_location_devices(self, location_id=''):
         """ get locations device list """
         uri = 'tools/locations/' + str(location_id) + '/devices/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
 
-    def get_tools_location_racks(self, location_id=''):
+    def list_tools_location_racks(self, location_id=''):
         """ get locations rack list """
         uri = 'tools/locations/' + str(location_id) + '/racks/'
         result = self.phpipam.api_send_request(path=uri, method='get')
