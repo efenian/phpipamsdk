@@ -9,9 +9,8 @@ class ToolsRacksApi(object):
     _objmap = {
         'id' : 'id',
         'name' : 'name',
-        'address' : 'address',
-        'lat' : 'lat',
-        'long' : 'long',
+        'location_id' : 'location',
+        'size' : 'size',
         'description' : 'description'
     }
 
