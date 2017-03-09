@@ -59,7 +59,7 @@ class ToolsScanagentsApi(object):
 
 
     def del_tools_scanagent(self, scanagent_id=''):
-        """ get nameserver """
+        """ get scanagent """
         uri = 'tools/scanagents/' + str(scanagent_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='delete')
         return result

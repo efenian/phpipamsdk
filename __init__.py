@@ -9,6 +9,7 @@ from .controllers import SectionsApi
 from .controllers import SubnetsApi
 from .controllers import ToolsDevicesApi
 from .controllers import ToolsDeviceTypesApi
+from .controllers import ToolsLocationsApi
 from .controllers import ToolsNameserversApi
 from .controllers import ToolsScanagentsApi
 from .controllers import ToolsTagsApi
