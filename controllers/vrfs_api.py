@@ -23,28 +23,28 @@ class VRFsApi(object):
 
     def list_vrfs(self):
         """ list vrfs """
-        uri = 'vrf/'
+        uri = 'vrfs/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
 
     def get_vrf(self, vrf_id=''):
         """ get vrf """
-        uri = 'vrf/' + str(vrf_id) + '/'
+        uri = 'vrfs/' + str(vrf_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
 
     def list_vrf_subnets(self, vrf_id=''):
         """ list vrfs subnets """
-        uri = 'vrf/' + str(vrf_id) + '/subnets/'
+        uri = 'vrfs/' + str(vrf_id) + '/subnets/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
 
     def list_vrf_custom_fields(self):
         """ list vrfs custom fields """
-        uri = 'vrf/custom_fields/'
+        uri = 'vrfs/custom_fields/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
@@ -55,7 +55,7 @@ class VRFsApi(object):
             'name' : name
         }
         payload.update(build_payload(self._objmap, **kwargs))
-        uri = 'vrf/'
+        uri = 'vrfs/'
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
         return result
@@ -65,7 +65,7 @@ class VRFsApi(object):
         """ update vrf """
         payload = {}
         payload.update(build_payload(self._objmap, **kwargs))
-        uri = 'vrf/' + str(vrf_id) + '/'
+        uri = 'vrfs/' + str(vrf_id) + '/'
         result = self.phpipam.api_send_request(
             path=uri, method='patch', payload=payload)
         return result
@@ -73,6 +73,6 @@ class VRFsApi(object):
 
     def del_vrf(self, vrf_id=''):
         """ delete l2domain """
-        uri = 'vrf/' + str(vrf_id) + '/'
+        uri = 'vrfs/' + str(vrf_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='delete')
         return result

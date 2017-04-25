@@ -13,6 +13,7 @@ class SubnetsApi(object):
         'description' : 'description',
         'section_id' : 'sectionId',
         'linked_subnet_id' : 'linked_subnet',
+        'device_id' : 'deviceId',
         'vlan_id' : 'vlanId',
         'vrf_id' : 'vrfId',
         'master_subnet_id' : 'masterSubnetId',
