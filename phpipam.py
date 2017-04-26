@@ -27,13 +27,12 @@ class PhpIpamApi(object):
     _api_verify_ssl = False
     _api_headers = {
         'accept': 'application/json',
-        'content-type' : 'application/json'
+        'content-type': 'application/json'
     }
 
     def __init__(self, api_uri='', api_verify_ssl=True):
         self._api_uri = api_uri
         self._api_verify_ssl = api_verify_ssl
-
 
     def api_send_request(self, path='', method='', auth='', payload=''):
         """ send HTTP REST request """
@@ -64,25 +63,21 @@ class PhpIpamApi(object):
             else:
                 raise PhpIpamException(response.text)
 
-
     def login(self, auth=''):
         """ authenticate to API """
         result = self.api_send_request(path='user/', auth=auth, method='post')
         self._api_token = result['data']['token']
         self._api_headers['phpipam-token'] = self._api_token
 
-
     def get_token(self):
         """ reset auth token """
         uri = 'user/'
         self.api_send_request(path=uri, method='get')
 
-
     def refresh_token(self):
         """ reset auth token """
         uri = 'user/'
         self.api_send_request(path=uri, method='patch')
-
 
     def logout(self):
         """ delete session """

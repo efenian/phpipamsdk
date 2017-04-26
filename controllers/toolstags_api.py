@@ -3,18 +3,18 @@
 from ..phpipam import PhpIpamApi
 from ..phpipam import build_payload
 
+
 class ToolsTagsApi(object):
     """ Tools Tags Api Class """
 
     _objmap = {
-        'id' : 'id',
-        'type' : 'type',
-        'showtags' : 'showtags',
-        'bgcolor' : 'bgcolor',
-        'fgcolor' : 'fgcolor',
-        'compress' : 'compress'
+        'id': 'id',
+        'type': 'type',
+        'showtags': 'showtags',
+        'bgcolor': 'bgcolor',
+        'fgcolor': 'fgcolor',
+        'compress': 'compress'
     }
-
 
     def __init__(self, phpipam=None):
         if phpipam:
@@ -22,13 +22,11 @@ class ToolsTagsApi(object):
         else:
             self.phpipam = PhpIpamApi()
 
-
     def list_tools_tags(self):
         """ get tag list """
         uri = 'tools/tags/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
-
 
     def get_tools_tag(self, tag_id=''):
         """ get tag """
@@ -36,18 +34,16 @@ class ToolsTagsApi(object):
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
-
     def add_tools_tag(self, name='', **kwargs):
         """ add tag """
         payload = {
-            'type' : name
+            'type': name
         }
         payload.update(build_payload(self._objmap, **kwargs))
         uri = 'tools/tags/'
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
         return result
-
 
     def update_tools_tag(self, tag_id='', **kwargs):
         """ update tag """
@@ -57,7 +53,6 @@ class ToolsTagsApi(object):
         result = self.phpipam.api_send_request(
             path=uri, method='patch', payload=payload)
         return result
-
 
     def del_tools_tag(self, tag_id=''):
         """ delete tag """

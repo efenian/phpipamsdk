@@ -3,17 +3,17 @@
 from ..phpipam import PhpIpamApi
 from ..phpipam import build_payload
 
+
 class ToolsNameserversApi(object):
     """ Tools Tags Api Class """
 
     _objmap = {
-        'id' : 'id',
-        'name' : 'name',
-        'namesrv1' : 'namesrv1',
-        'description' : 'description',
-        'permissions' : 'permissions'
+        'id': 'id',
+        'name': 'name',
+        'namesrv1': 'namesrv1',
+        'description': 'description',
+        'permissions': 'permissions'
     }
-
 
     def __init__(self, phpipam=None):
         if phpipam:
@@ -21,13 +21,11 @@ class ToolsNameserversApi(object):
         else:
             self.phpipam = PhpIpamApi()
 
-
     def list_tools_nameservers(self):
         """ get nameserver list """
         uri = 'tools/nameservers/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
-
 
     def get_tools_nameserver(self, nameserver_id=''):
         """ get nameserver """
@@ -35,18 +33,16 @@ class ToolsNameserversApi(object):
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
-
     def add_tools_nameserver(self, name='', **kwargs):
         """ add new nameserver """
         payload = {
-            'name' : name,
+            'name': name,
         }
         payload.update(build_payload(self._objmap, **kwargs))
         uri = 'tools/nameservers/'
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
         return result
-
 
     def update_tools_nameserver(self, nameserver_id='', **kwargs):
         """ update nameserver """
@@ -56,7 +52,6 @@ class ToolsNameserversApi(object):
         result = self.phpipam.api_send_request(
             path=uri, method='patch', payload=payload)
         return result
-
 
     def del_tools_nameserver(self, nameserver_id=''):
         """ get nameserver """

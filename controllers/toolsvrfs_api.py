@@ -3,17 +3,17 @@
 from ..phpipam import PhpIpamApi
 from ..phpipam import build_payload
 
+
 class ToolsVRFsApi(object):
     """ Tools VRFs Api Class """
 
     _objmap = {
-        'id' : 'id',
-        'name' : 'name',
-        'rd' : 'rd',
-        'description' : 'description',
-        'sections' : 'sections'
+        'id': 'id',
+        'name': 'name',
+        'rd': 'rd',
+        'description': 'description',
+        'sections': 'sections'
     }
-
 
     def __init__(self, phpipam=None):
         if phpipam:
@@ -21,20 +21,17 @@ class ToolsVRFsApi(object):
         else:
             self.phpipam = PhpIpamApi()
 
-
     def list_tools_vrfs(self):
         """ get vrf list """
         uri = 'tools/vrfs/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
-
     def get_tools_vrf(self, vrf_id=''):
         """ get vrf list """
-        uri = 'tools/vrfs/' + str(vrf_id) +'/'
+        uri = 'tools/vrfs/' + str(vrf_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
-
 
     def list_tools_vrf_subnets(self, vrf_id=''):
         """ get vrf subnet list """
@@ -42,18 +39,16 @@ class ToolsVRFsApi(object):
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
-
     def add_tools_vrf(self, name='', **kwargs):
         """ add new tools vrf """
         payload = {
-            'name' : name
+            'name': name
         }
         payload.update(build_payload(self._objmap, **kwargs))
         uri = 'tools/vrfs/'
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
         return result
-
 
     def update_tools_vrf(self, vrf_id='', **kwargs):
         """ update tools vrf """
@@ -63,7 +58,6 @@ class ToolsVRFsApi(object):
         result = self.phpipam.api_send_request(
             path=uri, method='patch', payload=payload)
         return result
-
 
     def del_vrf(self, vrf_id=''):
         """ delete tools vrf """
