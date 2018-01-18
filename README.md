@@ -31,7 +31,7 @@ def check_list(t_list='', t_item='', t_string=''):
     ambiguous = 'Abiguous ' + t_string + ' match: ' + t_item
     if not t_list:
         raise ValueError(not_found)
-    if t_list:
+    if len(t_list) > 1:
         raise ValueError(ambiguous)
 
 def list_subnets(ipam=None, section_name=None):
@@ -87,7 +87,7 @@ if __name__ == "__main__":
     list_subnets(ipam=IPAM, section_name='Customers')
     add_first_free_subnet(
         ipam=IPAM, section_name='Customers',
-        master_subnet_cidr="10.10.0.0", mask="24")
+        master_subnet_cidr="10.10.0.0/16", mask="24")
     print '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
     list_subnets(ipam=IPAM, section_name='Customers')
 
