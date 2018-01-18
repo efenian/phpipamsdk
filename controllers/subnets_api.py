@@ -124,7 +124,7 @@ class SubnetsApi(object):
             path=uri, method='post', payload=payload)
         return result
 
-    def add_subnet_first_free_subnet(self, subnet_id='', mask='', **kwargs):
+    def add_subnet_first_free(self, subnet_id='', mask='', **kwargs):
         """ add first free subnet under parent subnet """
         payload = {}
         payload.update(build_payload(self._objmap, **kwargs))

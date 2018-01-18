@@ -21,19 +21,19 @@ class ToolsDeviceTypesApi(object):
 
     def list_tools_devicetypes(self):
         """ get device type list """
-        uri = 'tools/devicetypes/'
+        uri = 'tools/device_types/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
     def list_tools_devicetype_devices(self, devicetype_id=''):
         """ get device type devices """
-        uri = 'tools/devicetypes/' + str(devicetype_id) + '/devices/'
+        uri = 'tools/device_types/' + str(devicetype_id) + '/devices/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
     def get_tools_devicetype(self, devicetype_id=''):
         """ get device type """
-        uri = 'tools/devicetypes/' + str(devicetype_id) + '/'
+        uri = 'tools/device_types/' + str(devicetype_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
@@ -43,7 +43,7 @@ class ToolsDeviceTypesApi(object):
             'name': name,
         }
         payload.update(build_payload(self._objmap, **kwargs))
-        uri = 'tools/devicetypes/'
+        uri = 'tools/device_types/'
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
         return result
@@ -52,13 +52,13 @@ class ToolsDeviceTypesApi(object):
         """ update devicetype """
         payload = {}
         payload.update(build_payload(self._objmap, **kwargs))
-        uri = 'tools/devicetypes/' + str(devicetype_id) + '/'
+        uri = 'tools/device_types/' + str(devicetype_id) + '/'
         result = self.phpipam.api_send_request(
             path=uri, method='patch', payload=payload)
         return result
 
     def del_tools_devicetype(self, devicetype_id=''):
         """ delete devicetype """
-        uri = 'tools/devicetypes/' + str(devicetype_id) + '/'
+        uri = 'tools/device_types/' + str(devicetype_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='delete')
         return result

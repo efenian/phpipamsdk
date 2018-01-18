@@ -3,6 +3,7 @@
 import json
 import requests
 
+from .configuration import Configuration
 
 def build_payload(objmap=None, **kwargs):
     """ build the REST payload """
@@ -30,9 +31,16 @@ class PhpIpamApi(object):
         'content-type': 'application/json'
     }
 
-    def __init__(self, api_uri='', api_verify_ssl=True):
-        self._api_uri = api_uri
-        self._api_verify_ssl = api_verify_ssl
+    def __init__(self, api_uri=None, api_verify_ssl=None):
+        if api_uri is None:if api_uri is None:
+            self._api_uri = Configuration().api_uri
+        else:
+            self._api_uri = api_uri
+        if api_verify_ssl is None:
+            self._api_verify_ssl = Configuration().api_verify_ssl
+        else:
+            self._api_verify_ssl = api_verify_ssl
+
 
     def api_send_request(self, path='', method='', auth='', payload=''):
         """ send HTTP REST request """
@@ -63,19 +71,21 @@ class PhpIpamApi(object):
             else:
                 raise PhpIpamException(response.text)
 
-    def login(self, auth=''):
+    def login(self, auth=None):
         """ authenticate to API """
+        if auth is None:
+            auth = (Configuration().api_username, Configuration().api_password)
         result = self.api_send_request(path='user/', auth=auth, method='post')
         self._api_token = result['data']['token']
         self._api_headers['phpipam-token'] = self._api_token
 
     def get_token(self):
-        """ reset auth token """
+        """ get auth token """
         uri = 'user/'
         self.api_send_request(path=uri, method='get')
 
     def refresh_token(self):
-        """ reset auth token """
+        """ refresh auth token """
         uri = 'user/'
         self.api_send_request(path=uri, method='patch')
 

@@ -61,7 +61,7 @@ class AddressesApi(object):
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
-    def get_address_first_free_subnet(self, subnet_id=''):
+    def get_address_first_free(self, subnet_id=''):
         """ get first available address from subnet """
         uri = 'addresses/first_free/' + str(subnet_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='get')
@@ -107,7 +107,7 @@ class AddressesApi(object):
         """ add first free IP address """
         payload = {}
         payload.update(build_payload(self._objmap, **kwargs))
-        uri = 'addresses/' + str(subnet_id) + '/'
+        uri = 'addresses/first_free/' + str(subnet_id) + '/'
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
         return result
