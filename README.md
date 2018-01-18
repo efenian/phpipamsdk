@@ -1,5 +1,5 @@
 # phpipamsdk
-PhpIpam Python SDK
+PhpIpam Python REST API Client
 
 Example Configuration File:
 ```python
