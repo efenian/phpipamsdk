@@ -5,6 +5,7 @@ import requests
 
 from .configuration import Configuration
 
+
 def build_payload(objmap=None, **kwargs):
     """ build the REST payload """
     payload = {}
@@ -32,7 +33,7 @@ class PhpIpamApi(object):
     }
 
     def __init__(self, api_uri=None, api_verify_ssl=None):
-        if api_uri is None:if api_uri is None:
+        if api_uri is None:
             self._api_uri = Configuration().api_uri
         else:
             self._api_uri = api_uri
@@ -40,7 +41,6 @@ class PhpIpamApi(object):
             self._api_verify_ssl = Configuration().api_verify_ssl
         else:
             self._api_verify_ssl = api_verify_ssl
-
 
     def api_send_request(self, path='', method='', auth='', payload=''):
         """ send HTTP REST request """
