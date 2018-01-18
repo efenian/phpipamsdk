@@ -2,7 +2,7 @@
 PhpIpam Python SDK
 
 Example Configuration File:
-'''
+```python
 """ configuration class """
 
 
@@ -14,11 +14,11 @@ class Configuration(object):
         self.api_username = 'admin'
         self.api_password = 'password'
         self.api_verify_ssl = False
-'''
+```
 
 Example Script:
 
-'''
+```python
 #!/usr/bin/env python
 """ Example """
 
@@ -69,11 +69,11 @@ def add_first_free_subnet(
 
     apiresult = subnets_api.list_subnets_cidr(subnet_cidr=master_subnet_cidr)
     subnetlist = apiresult['data'] if 'data' in apiresult else []
-'''
+```
 
 Example Output:
 
-'''
+```sh
  ./example.py
 My folder: 0.0.0.0/
 Business customers: 10.10.0.0/16
@@ -87,4 +87,4 @@ API autocreated: 10.10.0.0/24
 Customer 1: 10.10.1.0/24
 Customer 2: 10.10.2.0/24
 DHCP range: 10.65.22.0/24
-'''
+```
