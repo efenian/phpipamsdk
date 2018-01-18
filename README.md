@@ -47,7 +47,7 @@ def get_section_id(ipam=None, name=None):
     return sect[0]['id']
 
 def get_subnet_id(ipam=None, cidr=None, section_id=None):
-    """ get subnet ID by sectiona and CIDR notation """
+    """ get subnet ID by section id and CIDR notation """
     subnets_api = phpipamsdk.SubnetsApi(phpipam=ipam)
 
     if cidr and section_id:
