@@ -34,17 +34,36 @@ def check_list(t_list='', t_item='', t_string=''):
     if len(t_list) > 1:
         raise ValueError(ambiguous)
 
-def list_subnets(ipam=None, section_name=None):
-    """ get and print out section subnets """
+def get_section_id(ipam=None, name=None):
+    """ get section ID by name """
     sections_api = phpipamsdk.SectionsApi(phpipam=ipam)
 
     apiresult = sections_api.list_sections()
     sectionlist = apiresult['data'] if 'data' in apiresult else []
-    sect = [x for x in sectionlist if x['name'] == section_name]
+    sect = [x for x in sectionlist if x['name'] == name]
 
-    check_list(t_list=sect, t_item=section_name, t_string='section name')
+    check_list(t_list=sect, t_item=name, t_string='section name')
 
-    section_id = sect[0]['id']
+    return sect[0]['id']
+
+def get_subnet_id(ipam=None, cidr=None, section_id=None):
+    """ get subnet ID by sectiona and CIDR notation """
+    subnets_api = phpipamsdk.SubnetsApi(phpipam=ipam)
+
+    if cidr and section_id:
+        apiresult = subnets_api.list_subnets_cidr(subnet_cidr=cidr)
+        subnetlist = apiresult['data'] if 'data' in apiresult else []
+        subnet = [x for x in subnetlist if x['sectionId'] == section_id]
+
+        check_list(t_list=subnet, t_item=cidr, t_string='subnet cidr')
+
+        return subnet[0]['id']
+
+def list_subnets(ipam=None, section_name=None):
+    """ get and print out section subnets """
+    sections_api = phpipamsdk.SectionsApi(phpipam=ipam)
+
+    section_id = get_section_id(ipam=ipam, name=section_name)
 
     subnetlist = sections_api.list_section_subnets(section_id=section_id)
 
@@ -57,23 +76,10 @@ def add_first_free_subnet(
     """ add first available subnet to parent subnet """
     subnets_api = phpipamsdk.SubnetsApi(phpipam=ipam)
 
-    sections_api = phpipamsdk.SectionsApi(phpipam=ipam)
+    section_id = get_section_id(ipam=ipam, name=section_name)
 
-    apiresult = sections_api.list_sections()
-    sectionlist = apiresult['data'] if 'data' in apiresult else []
-    sect = [x for x in sectionlist if x['name'] == section_name]
-
-    check_list(t_list=sect, t_item=section_name, t_string='section name')
-
-    section_id = sect[0]['id']
-
-    apiresult = subnets_api.list_subnets_cidr(subnet_cidr=master_subnet_cidr)
-    subnetlist = apiresult['data'] if 'data' in apiresult else []
-    subnet = [x for x in subnetlist if x['sectionId'] == section_id]
-
-    check_list(t_list=subnet, t_item=master_subnet_cidr, t_string='subnet cidr')
-
-    master_subnet_id = subnet[0]['id']
+    master_subnet_id = get_subnet_id(
+        ipam=ipam, cidr=master_subnet_cidr, section_id=section_id)
 
     subnets_api.add_subnet_first_free(
         subnet_id=master_subnet_id,
