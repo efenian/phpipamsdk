@@ -8,4 +8,4 @@ class Configuration(object):
         self.api_uri = ''
         self.api_username = ''
         self.api_password = ''
-        self.api_verify_ssl = ''
+        self.api_verify_ssl = True
