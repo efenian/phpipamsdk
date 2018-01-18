@@ -69,6 +69,29 @@ def add_first_free_subnet(
 
     apiresult = subnets_api.list_subnets_cidr(subnet_cidr=master_subnet_cidr)
     subnetlist = apiresult['data'] if 'data' in apiresult else []
+    subnet = [x for x in subnetlist if x['sectionId'] == section_id]
+
+    check_list(t_list=subnet, t_item=master_subnet_cidr, t_string='subnet cidr')
+
+    master_subnet_id = subnet[0]['id']
+
+    subnets_api.add_subnet_first_free(
+        subnet_id=master_subnet_id,
+        mask=mask)
+
+if __name__ == "__main__":
+    warnings.filterwarnings('ignore')
+    IPAM = phpipamsdk.PhpIpamApi()
+    IPAM.login()
+
+    list_subnets(ipam=IPAM, section_name='Customers')
+    add_first_free_subnet(
+        ipam=IPAM, section_name='Customers',
+        master_subnet_cidr="10.10.0.0", mask="24")
+    print '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+    list_subnets(ipam=IPAM, section_name='Customers')
+
+    IPAM.logout()
 ```
 
 Example Output:
@@ -83,7 +106,7 @@ DHCP range: 10.65.22.0/24
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 My folder: 0.0.0.0/
 Business customers: 10.10.0.0/16
-API autocreated: 10.10.0.0/24
+**API autocreated: 10.10.0.0/24**
 Customer 1: 10.10.1.0/24
 Customer 2: 10.10.2.0/24
 DHCP range: 10.65.22.0/24
