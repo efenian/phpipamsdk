@@ -1,6 +1,6 @@
 """
 PhpIpam Api SDK
-Eric Donohue <edonohue@brocade.com>
+Eric Donohue
 """
 
 from .controllers import AddressesApi
