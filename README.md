@@ -93,81 +93,81 @@ DHCP range: 10.65.22.0/24
 
 Class PhpIpamApi
 
-methods:
+methods:  
 login()  
-login()
-get_token()
-refresh_token()
-logout()
+login()  
+get_token()  
+refresh_token()  
+logout()  
 
 ---
 
 Class AddressesApi
 
-methods:
-get_address()
-ping_address()
-get_address_from_subnet()
-search_address()
-search_hostname()
-get_address_first_free()
-list_address_custom_fields()
-list_address_tags()
-get_address_tag()
-list_addresses_tag()
-add_address()
-add_address_first_free()
-update_address()
-del_address()
-del_address_subnet()
+methods:  
+get_address()  
+ping_address()  
+get_address_from_subnet()  
+search_address()  
+search_hostname()  
+get_address_first_free()  
+list_address_custom_fields()  
+list_address_tags()  
+get_address_tag()  
+list_addresses_tag()  
+add_address()  
+add_address_first_free()  
+update_address()  
+del_address()  
+del_address_subnet()  
 
 ---
 
 Class L2DomainsApi()
 
 
-methods:
-list_l2domains()
-get_l2domain()
-get_l2domain_vlans()
-list_l2domain_custom_fields()
-add_l2domain()
-update_l2domain()
-del_l2domain()
+methods:  
+list_l2domains()  
+get_l2domain()  
+get_l2domain_vlans()  
+list_l2domain_custom_fields()  
+add_l2domain()  
+update_l2domain()  
+del_l2domain()  
 
 ---
 
 Class PrefixesApi()
 
-methods:
-list_prefixes_subnets()
-list_prefixes_subnets_version()
-list_prefixes_address()
-list_prefixes_address_version()
-get_prefixes_first_free_subnet()
-get_prefixes_first_free_address()
-add_prefixes_first_free_subnet()
-add_prefixes_first_free_address()
+methods:  
+list_prefixes_subnets()  
+list_prefixes_subnets_version()  
+list_prefixes_address()  
+list_prefixes_address_version()  
+get_prefixes_first_free_subnet()  
+get_prefixes_first_free_address()  
+add_prefixes_first_free_subnet()  
+add_prefixes_first_free_address()  
 
 ---
 
 Class SectionsApi()
 
-methods:
-list_sections()
-list_section_subnets()
-list_section_custom_fields()
-get_section()
-add_section()
-update_section()
-del_section()
+methods:  
+list_sections()  
+list_section_subnets()  
+list_section_custom_fields()  
+get_section()  
+add_section()  
+update_section()  
+del_section()  
 
 ---
 
 Class SubnetsApi()
 
-methods:
-get_subnet()
+methods:  
+get_subnet()  
 get_subnet_usage()
 list_subnet_slaves()
 list_subnet_slaves_recursive()
