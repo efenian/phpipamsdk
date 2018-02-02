@@ -121,6 +121,24 @@ update_address()
 del_address()  
 del_address_subnet()  
 
+
+available parameters:  
+id  
+subnet_id  
+ip  
+is_gateway  
+description  
+hostname  
+mac  
+owner  
+tag_id  
+ptr_ignore  
+ptr_id  
+device_id  
+port  
+note  
+exclude_ping  
+
 ---
 
 Class L2DomainsApi()
@@ -134,6 +152,11 @@ list_l2domain_custom_fields()
 add_l2domain()  
 update_l2domain()  
 del_l2domain()  
+
+available parameters:  
+id  
+name  
+description  
 
 ---
 
@@ -149,6 +172,43 @@ get_prefixes_first_free_address()
 add_prefixes_first_free_subnet()  
 add_prefixes_first_free_address()  
 
+available parameters:  
+id  
+subnet  
+mask  
+description  
+section_id  
+linked_subnet_id  
+vlan_id  
+vrf_id  
+master_subnet_id  
+nameserver_id  
+show_name  
+permissions  
+dns_recursive  
+dns_records  
+allow_requests  
+scan_agent_id  
+ping_subnet  
+discover_subnet  
+is_folder  
+is_full  
+state_id  
+threshold  
+location_id  
+subnet_id  
+ip  
+is_gateway  
+mac  
+owner  
+tag_id  
+ptr_ignore  
+ptr_id  
+device_id  
+port  
+note  
+exclude_ping  
+
 ---
 
 Class SectionsApi()
@@ -161,6 +221,20 @@ get_section()
 add_section()  
 update_section()  
 del_section()  
+
+available parameters:  
+id  
+name  
+description  
+master_section_id  
+permissions  
+strict_mode  
+subnet_ordering  
+order  
+show_vlan  
+show_vrf  
+show_supernet_only  
+dns_id  
 
 ---
 
@@ -189,6 +263,33 @@ del_subnet()
 del_subnet_addresses()  
 del_subnet_permissions()  
 
+
+available parameters:
+id  
+subnet  
+mask  
+description  
+section_id  
+linked_subnet_id  
+device_id  
+vlan_id  
+vrf_id  
+master_subnet_id  
+nameserver_id  
+show_name  
+permissions  
+dns_recursive  
+dns_records  
+allow_requests  
+scan_agent_id  
+ping_subnet  
+discover_subnet  
+is_folder  
+is_full  
+state_id  
+threshold  
+location_id
+
 ---
 
 Class ToolsDevicesApi()
@@ -199,6 +300,26 @@ get_tools_device()
 add_tools_device()  
 update_tools_device()  
 del_tools_device()  
+
+available parameters:  
+id  
+hostname  
+ip_addr  
+ip  
+type_id  
+vendor  
+model  
+sections  
+location_id  
+rack_id  
+rack_size  
+rack_start  
+snmp_community  
+snmp_port  
+snmp_queries  
+snmp_timeout  
+snmp_version  
+description  
 
 ---
 
@@ -211,6 +332,11 @@ get_tools_devicetype()
 add_tools_devicetype()  
 update_tools_devicetype()  
 del_tools_devicetype()  
+
+available parameters:  
+id  
+name  
+description  
 
 ---
 
@@ -226,6 +352,14 @@ add_tools_location()
 update_tools_location()  
 del_tools_location()  
 
+available parameters:  
+id  
+name  
+address  
+lat  
+long  
+description  
+
 ---
 
 Class ToolsNameserversApi()
@@ -236,6 +370,13 @@ get_tools_nameserver()
 add_tools_nameserver()  
 update_tools_nameserver()  
 del_tools_nameserver()  
+
+available parameters:  
+id  
+name  
+namesrv1  
+description  
+permissions  
 
 ---
 
@@ -250,6 +391,17 @@ add_tools_nat()
 update_tools_nat()  
 del_tools_nat()  
 
+available parameters:  
+id  
+name  
+type  
+device_id  
+src  
+src_port  
+dst  
+dst_port  
+description
+
 ---
 
 Class ToolsRacksApi()
@@ -262,6 +414,13 @@ add_tools_rack()
 update_tools_rack()  
 del_tools_rack()  
 
+available parameters:  
+id  
+name  
+location_id  
+size  
+description
+
 ---
 
 Class ToolsScanagentsApi()
@@ -273,6 +432,13 @@ add_tools_scanagent()
 update_tools_scanagent()  
 del_tools_scanagent()  
 
+available parameters:  
+id  
+name  
+type  
+description  
+code  
+
 ---
 
 Class ToolsTagsApi()
@@ -283,6 +449,14 @@ get_tools_tag()
 add_tools_tag()  
 update_tools_tag()  
 del_tools_tag()  
+
+available parameters:  
+id  
+type  
+showtags  
+bgcolor  
+fgcolor  
+compress
 
 ---
 
@@ -296,6 +470,13 @@ add_tools_vlan()
 update_tools_vlan()  
 del_vlan()  
 
+available parameters:  
+id  
+domain_id  
+name  
+number  
+description
+
 ---
 
 Class ToolsVRFsApi()
@@ -307,6 +488,13 @@ list_tools_vrf_subnets()
 add_tools_vrf()  
 update_tools_vrf()  
 del_vrf()  
+
+available parameters:  
+id  
+name  
+rd  
+description  
+sections
 
 ---
 
@@ -323,6 +511,13 @@ add_vlan()
 update_vlan()  
 del_vlan()  
 
+available parameters:  
+id  
+domain_id  
+name  
+number  
+description  
+
 ---
 
 Class VRFsApi()
@@ -335,6 +530,13 @@ list_vrf_custom_fields()
 add_vrf()  
 update_vrf()  
 del_vrf()  
+
+available parameters:  
+id  
+name  
+rd  
+description  
+sections  
 
 ---
 
