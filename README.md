@@ -1,7 +1,9 @@
 # phpipamsdk
 PhpIpam Python REST API Client
 
-Example Configuration File:
+No crypt API support, only HTTP/HTTPS with HTTPS recommended.
+
+Example Configuration Class File:
 ```python
 """ configuration class """
 
@@ -25,39 +27,8 @@ Example Script:
 import warnings
 import phpipamsdk
 
-def check_list(t_list='', t_item='', t_string=''):
-    """ function to check list length and raise appropriate exception """
-    not_found = t_string.capitalize() + ' not found: ' + t_item
-    ambiguous = 'Abiguous ' + t_string + ' match: ' + t_item
-    if not t_list:
-        raise ValueError(not_found)
-    if len(t_list) > 1:
-        raise ValueError(ambiguous)
-
-def get_section_id(ipam=None, name=None):
-    """ get section ID by name """
-    sections_api = phpipamsdk.SectionsApi(phpipam=ipam)
-
-    apiresult = sections_api.list_sections()
-    sectionlist = apiresult['data'] if 'data' in apiresult else []
-    sect = [x for x in sectionlist if x['name'] == name]
-
-    check_list(t_list=sect, t_item=name, t_string='section name')
-
-    return sect[0]['id']
-
-def get_subnet_id(ipam=None, cidr=None, section_id=None):
-    """ get subnet ID by section id and CIDR notation """
-    subnets_api = phpipamsdk.SubnetsApi(phpipam=ipam)
-
-    if cidr and section_id:
-        apiresult = subnets_api.list_subnets_cidr(subnet_cidr=cidr)
-        subnetlist = apiresult['data'] if 'data' in apiresult else []
-        subnet = [x for x in subnetlist if x['sectionId'] == section_id]
-
-        check_list(t_list=subnet, t_item=cidr, t_string='subnet cidr')
-
-        return subnet[0]['id']
+from phpipamsdk.utils import get_subnet_id
+from phpipamsdk.utils import get_section_id
 
 def list_subnets(ipam=None, section_name=None):
     """ get and print out section subnets """
@@ -117,3 +88,266 @@ Customer 1: 10.10.1.0/24
 Customer 2: 10.10.2.0/24
 DHCP range: 10.65.22.0/24
 ```
+
+---
+
+Class PhpIpamApi
+
+methods:
+login()
+login()
+get_token()
+refresh_token()
+logout()
+
+---
+
+Class AddressesApi
+
+methods:
+get_address()
+ping_address()
+get_address_from_subnet()
+search_address()
+search_hostname()
+get_address_first_free()
+list_address_custom_fields()
+list_address_tags()
+get_address_tag()
+list_addresses_tag()
+add_address()
+add_address_first_free()
+update_address()
+del_address()
+del_address_subnet()
+
+---
+
+Class L2DomainsApi()
+
+
+methods:
+list_l2domains()
+get_l2domain()
+get_l2domain_vlans()
+list_l2domain_custom_fields()
+add_l2domain()
+update_l2domain()
+del_l2domain()
+
+---
+
+Class PrefixesApi()
+
+methods:
+list_prefixes_subnets()
+list_prefixes_subnets_version()
+list_prefixes_address()
+list_prefixes_address_version()
+get_prefixes_first_free_subnet()
+get_prefixes_first_free_address()
+add_prefixes_first_free_subnet()
+add_prefixes_first_free_address()
+
+---
+
+Class SectionsApi()
+
+methods:
+list_sections()
+list_section_subnets()
+list_section_custom_fields()
+get_section()
+add_section()
+update_section()
+del_section()
+
+---
+
+Class SubnetsApi()
+
+methods:
+get_subnet()
+get_subnet_usage()
+list_subnet_slaves()
+list_subnet_slaves_recursive()
+list_subnet_addresses()
+get_subnet_address()
+get_subnet_first_free_address()
+get_subnet_first_free_subnet()
+list_subnet_free_subnets()
+list_subnet_custom_fields()
+list_subnets_cidr()
+search_subnets_cidr()
+add_subnet()
+add_subnet_first_free()
+update_subnet()
+resize_subnet()
+split_subnet()
+update_subnet_permissions()
+del_subnet()
+del_subnet_addresses()
+del_subnet_permissions()
+
+---
+
+Class ToolsDevicesApi()
+
+methods:
+list_tools_devices()
+get_tools_device()
+add_tools_device()
+update_tools_device()
+del_tools_device()
+
+---
+
+Class ToolsDeviceTypesApi()
+
+methods:
+list_tools_devicetypes()
+list_tools_devicetype_devices()
+get_tools_devicetype()
+add_tools_devicetype()
+update_tools_devicetype()
+del_tools_devicetype()
+
+---
+
+Class ToolsLocationsApi()
+
+methods:
+list_tools_locations()
+get_tools_location()
+list_tools_location_subnets()
+list_tools_location_devices()
+list_tools_location_racks()
+add_tools_location()
+update_tools_location()
+del_tools_location()
+
+---
+
+Class ToolsNameserversApi()
+
+methods:
+list_tools_nameservers()
+get_tools_nameserver()
+add_tools_nameserver()
+update_tools_nameserver()
+del_tools_nameserver()
+
+---
+
+Class ToolsNATApi()
+
+methods:
+list_tools_nats()
+get_tools_nat()
+list_tools_nat_objects()
+list_tools_nat_objects_full()
+add_tools_nat()
+update_tools_nat()
+del_tools_nat()
+
+---
+
+Class ToolsRacksApi()
+
+methods:
+list_tools_racks()
+get_tools_rack()
+list_tools_rack_devices()
+add_tools_rack()
+update_tools_rack()
+del_tools_rack()
+
+---
+
+Class ToolsScanagentsApi()
+
+methods:
+list_tools_scanagents()
+get_tools_scanagent()
+add_tools_scanagent()
+update_tools_scanagent()
+del_tools_scanagent()
+
+---
+
+Class ToolsTagsApi()
+
+methods:
+list_tools_tags()
+get_tools_tag()
+add_tools_tag()
+update_tools_tag()
+del_tools_tag()
+
+---
+
+Class ToolsVlansApi()
+
+methods:
+list_tools_vlans()
+get_tools_vlan()
+list_tools_vlan_subnets()
+add_tools_vlan()
+update_tools_vlan()
+del_vlan()
+
+---
+
+Class ToolsVRFsApi()
+
+methods:
+list_tools_vrfs()
+get_tools_vrf()
+list_tools_vrf_subnets()
+add_tools_vrf()
+update_tools_vrf()
+del_vrf()
+
+---
+
+Class VlansApi()
+
+methods:
+list_vlans()
+get_vlan()
+list_vlan_subnets()
+list_vlan_subnets_section()
+list_vlan_custom_fields()
+search_vlans()
+add_vlan()
+update_vlan()
+del_vlan()
+
+---
+
+Class VRFsApi()
+
+methods:
+list_vrfs()
+get_vrf()
+list_vrf_subnets()
+list_vrf_custom_fields()
+add_vrf()
+update_vrf()
+del_vrf()
+
+---
+
+Utility Functions:
+
+get_tools_location_id()
+get_tools_rack_id()
+get_tools_devicetype_id()
+get_tools_device_id()
+get_section_id()
+get_l2domain_id()
+get_vlan_id()
+get_subnet_id()
+get_vrf_id()
+get_tag_id()
+get_address_id()
