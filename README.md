@@ -168,186 +168,186 @@ Class SubnetsApi()
 
 methods:  
 get_subnet()  
-get_subnet_usage()
-list_subnet_slaves()
-list_subnet_slaves_recursive()
-list_subnet_addresses()
-get_subnet_address()
-get_subnet_first_free_address()
-get_subnet_first_free_subnet()
-list_subnet_free_subnets()
-list_subnet_custom_fields()
-list_subnets_cidr()
-search_subnets_cidr()
-add_subnet()
-add_subnet_first_free()
-update_subnet()
-resize_subnet()
-split_subnet()
-update_subnet_permissions()
-del_subnet()
-del_subnet_addresses()
-del_subnet_permissions()
+get_subnet_usage()  
+list_subnet_slaves()  
+list_subnet_slaves_recursive()  
+list_subnet_addresses()  
+get_subnet_address()  
+get_subnet_first_free_address()  
+get_subnet_first_free_subnet()  
+list_subnet_free_subnets()  
+list_subnet_custom_fields()  
+list_subnets_cidr()  
+search_subnets_cidr()  
+add_subnet()  
+add_subnet_first_free()  
+update_subnet()  
+resize_subnet()  
+split_subnet()  
+update_subnet_permissions()  
+del_subnet()  
+del_subnet_addresses()  
+del_subnet_permissions()  
 
 ---
 
 Class ToolsDevicesApi()
 
-methods:
-list_tools_devices()
-get_tools_device()
-add_tools_device()
-update_tools_device()
-del_tools_device()
+methods:  
+list_tools_devices()  
+get_tools_device()  
+add_tools_device()  
+update_tools_device()  
+del_tools_device()  
 
 ---
 
 Class ToolsDeviceTypesApi()
 
-methods:
-list_tools_devicetypes()
-list_tools_devicetype_devices()
-get_tools_devicetype()
-add_tools_devicetype()
-update_tools_devicetype()
-del_tools_devicetype()
+methods:  
+list_tools_devicetypes()  
+list_tools_devicetype_devices()  
+get_tools_devicetype()  
+add_tools_devicetype()  
+update_tools_devicetype()  
+del_tools_devicetype()  
 
 ---
 
 Class ToolsLocationsApi()
 
-methods:
-list_tools_locations()
-get_tools_location()
-list_tools_location_subnets()
-list_tools_location_devices()
-list_tools_location_racks()
-add_tools_location()
-update_tools_location()
-del_tools_location()
+methods:  
+list_tools_locations()  
+get_tools_location()  
+list_tools_location_subnets()  
+list_tools_location_devices()  
+list_tools_location_racks()  
+add_tools_location()  
+update_tools_location()  
+del_tools_location()  
 
 ---
 
 Class ToolsNameserversApi()
 
-methods:
-list_tools_nameservers()
-get_tools_nameserver()
-add_tools_nameserver()
-update_tools_nameserver()
-del_tools_nameserver()
+methods:  
+list_tools_nameservers()  
+get_tools_nameserver()  
+add_tools_nameserver()  
+update_tools_nameserver()  
+del_tools_nameserver()  
 
 ---
 
 Class ToolsNATApi()
 
-methods:
-list_tools_nats()
-get_tools_nat()
-list_tools_nat_objects()
-list_tools_nat_objects_full()
-add_tools_nat()
-update_tools_nat()
-del_tools_nat()
+methods:  
+list_tools_nats()  
+get_tools_nat()  
+list_tools_nat_objects()  
+list_tools_nat_objects_full()  
+add_tools_nat()  
+update_tools_nat()  
+del_tools_nat()  
 
 ---
 
 Class ToolsRacksApi()
 
-methods:
-list_tools_racks()
-get_tools_rack()
-list_tools_rack_devices()
-add_tools_rack()
-update_tools_rack()
-del_tools_rack()
+methods:  
+list_tools_racks()  
+get_tools_rack()  
+list_tools_rack_devices()  
+add_tools_rack()  
+update_tools_rack()  
+del_tools_rack()  
 
 ---
 
 Class ToolsScanagentsApi()
 
 methods:
-list_tools_scanagents()
-get_tools_scanagent()
-add_tools_scanagent()
-update_tools_scanagent()
-del_tools_scanagent()
+list_tools_scanagents()  
+get_tools_scanagent()  
+add_tools_scanagent()  
+update_tools_scanagent()  
+del_tools_scanagent()  
 
 ---
 
 Class ToolsTagsApi()
 
-methods:
-list_tools_tags()
-get_tools_tag()
-add_tools_tag()
-update_tools_tag()
-del_tools_tag()
+methods:  
+list_tools_tags()  
+get_tools_tag()  
+add_tools_tag()  
+update_tools_tag()  
+del_tools_tag()  
 
 ---
 
 Class ToolsVlansApi()
 
-methods:
-list_tools_vlans()
-get_tools_vlan()
-list_tools_vlan_subnets()
-add_tools_vlan()
-update_tools_vlan()
-del_vlan()
+methods:  
+list_tools_vlans()  
+get_tools_vlan()  
+list_tools_vlan_subnets()  
+add_tools_vlan()  
+update_tools_vlan()  
+del_vlan()  
 
 ---
 
 Class ToolsVRFsApi()
 
-methods:
-list_tools_vrfs()
-get_tools_vrf()
-list_tools_vrf_subnets()
-add_tools_vrf()
-update_tools_vrf()
-del_vrf()
+methods:  
+list_tools_vrfs()  
+get_tools_vrf()  
+list_tools_vrf_subnets()  
+add_tools_vrf()  
+update_tools_vrf()  
+del_vrf()  
 
 ---
 
 Class VlansApi()
 
-methods:
-list_vlans()
-get_vlan()
-list_vlan_subnets()
-list_vlan_subnets_section()
-list_vlan_custom_fields()
-search_vlans()
-add_vlan()
-update_vlan()
-del_vlan()
+methods:  
+list_vlans()  
+get_vlan()  
+list_vlan_subnets()  
+list_vlan_subnets_section()  
+list_vlan_custom_fields()  
+search_vlans()  
+add_vlan()  
+update_vlan()  
+del_vlan()  
 
 ---
 
 Class VRFsApi()
 
-methods:
-list_vrfs()
-get_vrf()
-list_vrf_subnets()
-list_vrf_custom_fields()
-add_vrf()
-update_vrf()
-del_vrf()
+methods:  
+list_vrfs()  
+get_vrf()  
+list_vrf_subnets()  
+list_vrf_custom_fields()  
+add_vrf()  
+update_vrf()  
+del_vrf()  
 
 ---
 
 Utility Functions:
 
-get_tools_location_id()
-get_tools_rack_id()
-get_tools_devicetype_id()
-get_tools_device_id()
-get_section_id()
-get_l2domain_id()
-get_vlan_id()
-get_subnet_id()
-get_vrf_id()
-get_tag_id()
-get_address_id()
+get_tools_location_id()  
+get_tools_rack_id()  
+get_tools_devicetype_id()  
+get_tools_device_id()  
+get_section_id()  
+get_l2domain_id()  
+get_vlan_id()  
+get_subnet_id()  
+get_vrf_id()  
+get_tag_id()  
+get_address_id()  
