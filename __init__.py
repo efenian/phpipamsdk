@@ -4,6 +4,7 @@ Eric Donohue
 """
 
 from .controllers import AddressesApi
+from .controllers import CircuitsApi
 from .controllers import L2DomainsApi
 from .controllers import PrefixesApi
 from .controllers import SectionsApi
