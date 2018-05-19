@@ -14,11 +14,11 @@ class CircuitsApi(object):
         'type': 'type',
         'capacity': 'capacity',
         'status': 'status',
-        'device1': 'device2',
-		'location1': 'location1',
-		'device2': 'device2',
-		'location2': 'location2',
-		'comment': 'comment',
+        'device1': 'device1',
+        'location1': 'location1',
+        'device2': 'device2',
+        'location2': 'location2',
+        'comment': 'comment',
         'name': 'name',
         'description': 'description',
         'contact': 'contact'
@@ -56,7 +56,7 @@ class CircuitsApi(object):
         return result
 
     def update_circuit(self, cir_id=None, **kwargs):
-        """ update provider """
+        """ update circuit """
         payload = {}
         payload.update(build_payload(self._objmap, **kwargs))
         uri = 'circuits/' + str(cir_id) + '/'
