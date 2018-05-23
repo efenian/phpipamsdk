@@ -107,5 +107,3 @@ class CircuitsApi(object):
         uri = 'circuits/providers/' + str(provider_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='delete')
         return result
-
-    

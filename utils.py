@@ -15,7 +15,7 @@ def check_list(t_list='', t_item='', t_string=''):
     """ function to check list length and raise appropriate exception """
     not_found = t_string.capitalize() + ' not found: ' + t_item
     ambiguous = 'Abiguous ' + t_string + ' match: ' + t_item
-    if len(t_list) == 0:
+    if not t_list:
         raise ValueError(not_found)
     if len(t_list) > 1:
         raise ValueError(ambiguous)
@@ -116,6 +116,8 @@ def get_vlan_id(ipam=None, name=None, number=None, l2domain_id=None):
 
         return vlan[0]['id']
 
+    raise ValueError('Missing required parameter')
+
 
 def get_subnet_id(ipam=None, name=None, cidr=None, section_id=None):
     subnets_api = SubnetsApi(phpipam=ipam)
@@ -128,6 +130,8 @@ def get_subnet_id(ipam=None, name=None, cidr=None, section_id=None):
         check_list(t_list=subnet, t_item=cidr, t_string='subnet cidr')
 
         return subnet[0]['id']
+
+    raise ValueError('Missing required parameter')
 
 
 def get_vrf_id(ipam=None, name=None):
