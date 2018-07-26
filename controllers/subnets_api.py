@@ -88,6 +88,12 @@ class SubnetsApi(object):
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
+    def get_subnet_last_free_subnet(self, subnet_id='', mask=''):
+        """ get last available subnet in parent subnet """
+        uri = 'subnets/' + str(subnet_id) + '/last_subnet/' + str(mask) + '/'
+        result = self.phpipam.api_send_request(path=uri, method='get')
+        return result
+
     def list_subnet_free_subnets(self, subnet_id='', mask=''):
         """ list available subnet in parent subnet """
         uri = 'subnets/' + str(subnet_id) + '/all_subnets/' + str(mask) + '/'
@@ -129,6 +135,15 @@ class SubnetsApi(object):
         payload = {}
         payload.update(build_payload(self._objmap, **kwargs))
         uri = 'subnets/' + str(subnet_id) + '/first_subnet/' + str(mask) + '/'
+        result = self.phpipam.api_send_request(
+            path=uri, method='post', payload=payload)
+        return result
+
+    def add_subnet_last_free(self, subnet_id='', mask='', **kwargs):
+        """ add last free subnet under parent subnet """
+        payload = {}
+        payload.update(build_payload(self._objmap, **kwargs))
+        uri = 'subnets/' + str(subnet_id) + '/last_subnet/' + str(mask) + '/'
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
         return result
