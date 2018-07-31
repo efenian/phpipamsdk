@@ -274,7 +274,7 @@ del_subnet_addresses()
 del_subnet_permissions()  
 
 
-__available parameters:__
+__available parameters:__  
 id  
 subnet  
 mask  
@@ -441,7 +441,7 @@ description
 
 __Class ToolsScanagentsApi()__
 
-__methods:__
+__methods:__  
 list_tools_scanagents()  
 get_tools_scanagent()  
 add_tools_scanagent()  
