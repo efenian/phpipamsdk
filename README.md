@@ -114,7 +114,7 @@ logout()
 
 __Class AddressesApi__
 
-methods:  
+__methods:__  
 get_address()  
 ping_address()  
 get_address_from_subnet()  
@@ -132,7 +132,7 @@ del_address()
 del_address_subnet()  
 
 
-available parameters:  
+__available parameters:__  
 id  
 subnet_id  
 ip  
@@ -151,10 +151,10 @@ exclude_ping
 
 ---
 
-Class L2DomainsApi()
+__Class L2DomainsApi()__
 
 
-methods:  
+__methods:__  
 list_l2domains()  
 get_l2domain()  
 get_l2domain_vlans()  
@@ -163,16 +163,16 @@ add_l2domain()
 update_l2domain()  
 del_l2domain()  
 
-available parameters:  
+__available parameters:__  
 id  
 name  
 description  
 
 ---
 
-Class PrefixesApi()
+__Class PrefixesApi()__
 
-methods:  
+__methods:__  
 list_prefixes_subnets()  
 list_prefixes_subnets_version()  
 list_prefixes_address()  
@@ -182,7 +182,7 @@ get_prefixes_first_free_address()
 add_prefixes_first_free_subnet()  
 add_prefixes_first_free_address()  
 
-available parameters:  
+__available parameters:__  
 id  
 subnet  
 mask  
@@ -221,9 +221,9 @@ exclude_ping
 
 ---
 
-Class SectionsApi()
+__Class SectionsApi()__
 
-methods:  
+__methods:__  
 list_sections()  
 list_section_subnets()  
 list_section_custom_fields()  
@@ -232,7 +232,7 @@ add_section()
 update_section()  
 del_section()  
 
-available parameters:  
+__available parameters:__  
 id  
 name  
 description  
@@ -248,9 +248,9 @@ dns_id
 
 ---
 
-Class SubnetsApi()
+__Class SubnetsApi()__
 
-methods:  
+__methods:__  
 get_subnet()  
 get_subnet_usage()  
 list_subnet_slaves()  
@@ -274,7 +274,7 @@ del_subnet_addresses()
 del_subnet_permissions()  
 
 
-available parameters:
+__available parameters:__
 id  
 subnet  
 mask  
@@ -302,16 +302,16 @@ location_id
 
 ---
 
-Class ToolsDevicesApi()
+__Class ToolsDevicesApi()__
 
-methods:  
+__methods:__  
 list_tools_devices()  
 get_tools_device()  
 add_tools_device()  
 update_tools_device()  
 del_tools_device()  
 
-available parameters:  
+__available parameters:__  
 id  
 hostname  
 ip_addr  
@@ -339,9 +339,9 @@ description
 
 ---
 
-Class ToolsDeviceTypesApi()
+__Class ToolsDeviceTypesApi()__
 
-methods:  
+__methods:__  
 list_tools_devicetypes()  
 list_tools_devicetype_devices()  
 get_tools_devicetype()  
@@ -349,16 +349,16 @@ add_tools_devicetype()
 update_tools_devicetype()  
 del_tools_devicetype()  
 
-available parameters:  
+__available parameters:__  
 id  
 name  
 description  
 
 ---
 
-Class ToolsLocationsApi()
+__Class ToolsLocationsApi()__
 
-methods:  
+__methods:__  
 list_tools_locations()  
 get_tools_location()  
 list_tools_location_subnets()  
@@ -368,7 +368,7 @@ add_tools_location()
 update_tools_location()  
 del_tools_location()  
 
-available parameters:  
+__available parameters:__  
 id  
 name  
 address  
@@ -378,16 +378,16 @@ description
 
 ---
 
-Class ToolsNameserversApi()
+__Class ToolsNameserversApi()__
 
-methods:  
+__methods:__  
 list_tools_nameservers()  
 get_tools_nameserver()  
 add_tools_nameserver()  
 update_tools_nameserver()  
 del_tools_nameserver()  
 
-available parameters:  
+__available parameters:__  
 id  
 name  
 namesrv1  
@@ -396,9 +396,9 @@ permissions
 
 ---
 
-Class ToolsNATApi()
+__Class ToolsNATApi()__
 
-methods:  
+__methods:__  
 list_tools_nats()  
 get_tools_nat()  
 list_tools_nat_objects()  
@@ -407,7 +407,7 @@ add_tools_nat()
 update_tools_nat()  
 del_tools_nat()  
 
-available parameters:  
+__available parameters:__  
 id  
 name  
 type  
@@ -420,9 +420,9 @@ description
 
 ---
 
-Class ToolsRacksApi()
+__Class ToolsRacksApi()__
 
-methods:  
+__methods:__  
 list_tools_racks()  
 get_tools_rack()  
 list_tools_rack_devices()  
@@ -430,7 +430,7 @@ add_tools_rack()
 update_tools_rack()  
 del_tools_rack()  
 
-available parameters:  
+__available parameters:__  
 id  
 name  
 location_id  
@@ -439,16 +439,16 @@ description
 
 ---
 
-Class ToolsScanagentsApi()
+__Class ToolsScanagentsApi()__
 
-methods:
+__methods:__
 list_tools_scanagents()  
 get_tools_scanagent()  
 add_tools_scanagent()  
 update_tools_scanagent()  
 del_tools_scanagent()  
 
-available parameters:  
+__available parameters:__  
 id  
 name  
 type  
@@ -457,16 +457,16 @@ code
 
 ---
 
-Class ToolsTagsApi()
+__Class ToolsTagsApi()__
 
-methods:  
+__methods:__  
 list_tools_tags()  
 get_tools_tag()  
 add_tools_tag()  
 update_tools_tag()  
 del_tools_tag()  
 
-available parameters:  
+__available parameters:__  
 id  
 type  
 showtags  
@@ -476,9 +476,9 @@ compress
 
 ---
 
-Class ToolsVlansApi()
+__Class ToolsVlansApi()__
 
-methods:  
+__methods:__  
 list_tools_vlans()  
 get_tools_vlan()  
 list_tools_vlan_subnets()  
@@ -486,7 +486,7 @@ add_tools_vlan()
 update_tools_vlan()  
 del_vlan()  
 
-available parameters:  
+__available parameters:__  
 id  
 domain_id  
 name  
@@ -495,9 +495,9 @@ description
 
 ---
 
-Class ToolsVRFsApi()
+__Class ToolsVRFsApi()__
 
-methods:  
+__methods:__  
 list_tools_vrfs()  
 get_tools_vrf()  
 list_tools_vrf_subnets()  
@@ -505,7 +505,7 @@ add_tools_vrf()
 update_tools_vrf()  
 del_vrf()  
 
-available parameters:  
+__available parameters:__  
 id  
 name  
 rd  
@@ -514,9 +514,9 @@ sections
 
 ---
 
-Class VlansApi()
+__Class VlansApi()__
 
-methods:  
+__methods:__  
 list_vlans()  
 get_vlan()  
 list_vlan_subnets()  
@@ -527,7 +527,7 @@ add_vlan()
 update_vlan()  
 del_vlan()  
 
-available parameters:  
+__available parameters:__  
 id  
 domain_id  
 name  
@@ -536,9 +536,9 @@ description
 
 ---
 
-Class VRFsApi()
+__Class VRFsApi()__
 
-methods:  
+__methods:__  
 list_vrfs()  
 get_vrf()  
 list_vrf_subnets()  
@@ -547,7 +547,7 @@ add_vrf()
 update_vrf()  
 del_vrf()  
 
-available parameters:  
+__available parameters:__  
 id  
 name  
 rd  
@@ -556,7 +556,7 @@ sections
 
 ---
 
-Utility Functions:
+__Utility Functions:__
 
 get_tools_location_id()  
 get_tools_rack_id()  
