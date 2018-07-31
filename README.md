@@ -84,8 +84,7 @@ if __name__ == "__main__":
 
 Example Output:
 
-<pre><code>
-./example.py
+<pre><code>./example.py
 My folder: 0.0.0.0/
 Business customers: 10.10.0.0/16
 Customer 1: 10.10.1.0/24
