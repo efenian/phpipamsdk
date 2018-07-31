@@ -1,7 +1,7 @@
 """ Tools Vlans Api Calls """
 
-from ..phpipam import PhpIpamApi
-from ..phpipam import build_payload
+from phpipamsdk.phpipam import PhpIpamApi
+from phpipamsdk.phpipam import build_payload
 
 
 class ToolsVlansApi(object):

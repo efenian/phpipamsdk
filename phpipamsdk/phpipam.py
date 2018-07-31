@@ -3,7 +3,7 @@
 import json
 import requests
 
-from .configuration import Configuration
+from configuration import Configuration
 
 
 def build_payload(objmap=None, **kwargs):

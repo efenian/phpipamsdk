@@ -3,7 +3,18 @@ PhpIpam Python REST API Client
 
 No crypt API support, only HTTP/HTTPS with HTTPS recommended.
 
-Example Configuration Class File:
+You can try my [vagrant](https://github.com/efenian/vagrant-phpipam) to get
+an instance of phpipam up and running for testing with Virtualbox.
+
+Install:
+git clone https://github.com/efenian/phpipamsdk.git
+cd phpipamsdk
+pip install .
+
+Uninstall:
+pip uninstall phpipamsdk
+
+Example Configuration Class File using app id of 'app':
 ```python
 """ configuration class """
 
@@ -18,7 +29,7 @@ class Configuration(object):
         self.api_verify_ssl = False
 ```
 
-Example Script:
+Example Script (also some scripts in examples directory):
 
 ```python
 #!/usr/bin/env python
@@ -83,7 +94,7 @@ DHCP range: 10.65.22.0/24
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 My folder: 0.0.0.0/
 Business customers: 10.10.0.0/16
-**API autocreated: 10.10.0.0/24**
+<pre><b>API autocreated: 10.10.0.0/24</b></pre>
 Customer 1: 10.10.1.0/24
 Customer 2: 10.10.2.0/24
 DHCP range: 10.65.22.0/24
@@ -319,6 +330,12 @@ snmp_port
 snmp_queries  
 snmp_timeout  
 snmp_version  
+snmp_v3_auth_protocol  
+snmp_v3_auth_pass  
+snmp_v3_priv_protocol  
+snmp_v3_priv_pass  
+snmp_v3_ctx_name  
+snmp_v3_ctx_engine_id  
 description  
 
 ---

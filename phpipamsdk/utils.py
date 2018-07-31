@@ -1,14 +1,14 @@
 """ Utility Functions """
-from .controllers import L2DomainsApi
-from .controllers import SectionsApi
-from .controllers import SubnetsApi
-from .controllers import ToolsDevicesApi
-from .controllers import ToolsDeviceTypesApi
-from .controllers import ToolsLocationsApi
-from .controllers import ToolsRacksApi
-from .controllers import ToolsTagsApi
-from .controllers import VlansApi
-from .controllers import VRFsApi
+from phpipamsdk.controllers import L2DomainsApi
+from phpipamsdk.controllers import SectionsApi
+from phpipamsdk.controllers import SubnetsApi
+from phpipamsdk.controllers import ToolsDevicesApi
+from phpipamsdk.controllers import ToolsDeviceTypesApi
+from phpipamsdk.controllers import ToolsLocationsApi
+from phpipamsdk.controllers import ToolsRacksApi
+from phpipamsdk.controllers import ToolsTagsApi
+from phpipamsdk.controllers import VlansApi
+from phpipamsdk.controllers import VRFsApi
 
 
 def check_list(t_list='', t_item='', t_string=''):

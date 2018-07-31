@@ -1,18 +1,18 @@
-""" Tools Nameservers Api Calls """
+""" Tools Scanagents Api Calls """
 
-from ..phpipam import PhpIpamApi
-from ..phpipam import build_payload
+from phpipamsdk.phpipam import PhpIpamApi
+from phpipamsdk.phpipam import build_payload
 
 
-class ToolsNameserversApi(object):
-    """ Tools Tags Api Class """
+class ToolsScanagentsApi(object):
+    """ Tools Scanagents Api Class """
 
     _objmap = {
         'id': 'id',
         'name': 'name',
-        'namesrv1': 'namesrv1',
+        'type': 'type',
         'description': 'description',
-        'permissions': 'permissions'
+        'code': 'code'
     }
 
     def __init__(self, phpipam=None):
@@ -21,40 +21,40 @@ class ToolsNameserversApi(object):
         else:
             self.phpipam = PhpIpamApi()
 
-    def list_tools_nameservers(self):
-        """ get nameserver list """
-        uri = 'tools/nameservers/'
+    def list_tools_scanagents(self):
+        """ get scanagents list """
+        uri = 'tools/scanagents/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
-    def get_tools_nameserver(self, nameserver_id=''):
-        """ get nameserver """
-        uri = 'tools/nameservers/' + str(nameserver_id) + '/'
+    def get_tools_scanagent(self, scanagent_id=''):
+        """ get scanagent """
+        uri = 'tools/scanagents/' + str(scanagent_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
-    def add_tools_nameserver(self, name='', **kwargs):
-        """ add new nameserver """
+    def add_tools_scanagent(self, name='', **kwargs):
+        """ add new scanagent """
         payload = {
             'name': name,
         }
         payload.update(build_payload(self._objmap, **kwargs))
-        uri = 'tools/nameservers/'
+        uri = 'tools/scanagents/'
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
         return result
 
-    def update_tools_nameserver(self, nameserver_id='', **kwargs):
-        """ update nameserver """
+    def update_tools_scanagent(self, scanagent_id='', **kwargs):
+        """ update scanagent """
         payload = {}
         payload.update(build_payload(self._objmap, **kwargs))
-        uri = 'tools/nameservers/' + str(nameserver_id) + '/'
+        uri = 'tools/scanagents/' + str(scanagent_id) + '/'
         result = self.phpipam.api_send_request(
             path=uri, method='patch', payload=payload)
         return result
 
-    def del_tools_nameserver(self, nameserver_id=''):
-        """ get nameserver """
-        uri = 'tools/nameservers/' + str(nameserver_id) + '/'
+    def del_tools_scanagent(self, scanagent_id=''):
+        """ get scanagent """
+        uri = 'tools/scanagents/' + str(scanagent_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='delete')
         return result

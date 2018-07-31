@@ -1,18 +1,16 @@
-""" VRFs Api Calls """
+""" L2Domains Api Calls """
 
-from ..phpipam import PhpIpamApi
-from ..phpipam import build_payload
+from phpipamsdk.phpipam import PhpIpamApi
+from phpipamsdk.phpipam import build_payload
 
 
-class VRFsApi(object):
-    """ VRFs Api Class """
+class L2DomainsApi(object):
+    """ L2Domains Api Class """
 
     _objmap = {
         'id': 'id',
         'name': 'name',
-        'rd': 'rd',
-        'description': 'description',
-        'sections': 'sections'
+        'description': 'description'
     }
 
     def __init__(self, phpipam=None):
@@ -21,52 +19,52 @@ class VRFsApi(object):
         else:
             self.phpipam = PhpIpamApi()
 
-    def list_vrfs(self):
-        """ list vrfs """
-        uri = 'vrfs/'
+    def list_l2domains(self):
+        """ get l2domain list """
+        uri = 'l2domains/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
-    def get_vrf(self, vrf_id=''):
-        """ get vrf """
-        uri = 'vrfs/' + str(vrf_id) + '/'
+    def get_l2domain(self, domain_id=''):
+        """ get l2domain """
+        uri = 'l2domains/' + str(domain_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
-    def list_vrf_subnets(self, vrf_id=''):
-        """ list vrfs subnets """
-        uri = 'vrfs/' + str(vrf_id) + '/subnets/'
+    def get_l2domain_vlans(self, domain_id=''):
+        """ get l2domain vlans """
+        uri = 'l2domains/' + str(domain_id) + '/vlans/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
-    def list_vrf_custom_fields(self):
-        """ list vrfs custom fields """
-        uri = 'vrfs/custom_fields/'
+    def list_l2domain_custom_fields(self):
+        """ get l2domain custom fields """
+        uri = 'l2domains/custom_fields/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
-    def add_vrf(self, name='', **kwargs):
-        """ add new vrf """
+    def add_l2domain(self, name='', **kwargs):
+        """ add new l2domain """
         payload = {
             'name': name
         }
         payload.update(build_payload(self._objmap, **kwargs))
-        uri = 'vrfs/'
+        uri = 'l2domains/'
         result = self.phpipam.api_send_request(
             path=uri, method='post', payload=payload)
         return result
 
-    def update_vrf(self, vrf_id='', **kwargs):
-        """ update vrf """
+    def update_l2domain(self, domain_id='', **kwargs):
+        """ update l2domain """
         payload = {}
         payload.update(build_payload(self._objmap, **kwargs))
-        uri = 'vrfs/' + str(vrf_id) + '/'
+        uri = 'l2domains/' + str(domain_id) + '/'
         result = self.phpipam.api_send_request(
             path=uri, method='patch', payload=payload)
         return result
 
-    def del_vrf(self, vrf_id=''):
+    def del_l2domain(self, l2domain_id=''):
         """ delete l2domain """
-        uri = 'vrfs/' + str(vrf_id) + '/'
+        uri = 'l2domains/' + str(l2domain_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='delete')
         return result

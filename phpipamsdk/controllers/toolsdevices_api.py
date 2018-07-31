@@ -1,7 +1,7 @@
 """ Tools Devices Api Calls """
 
-from ..phpipam import PhpIpamApi
-from ..phpipam import build_payload
+from phpipamsdk.phpipam import PhpIpamApi
+from phpipamsdk.phpipam import build_payload
 
 
 class ToolsDevicesApi(object):
@@ -25,6 +25,12 @@ class ToolsDevicesApi(object):
         'snmp_queries': 'snmp_queries',
         'snmp_timeout': 'snmp_timeout',
         'snmp_version': 'snmp_version',
+        'snmp_v3_auth_protocol': 'snmp_v3_auth_protocol',
+		'snmp_v3_auth_pass': 'snmp_v3_auth_pass',
+		'snmp_v3_priv_protocol': 'snmp_v3_priv_protocol',
+		'snmp_v3_priv_pass': 'snmp_v3_priv_pass',
+		'snmp_v3_ctx_name': 'snmp_v3_ctx_name',
+		'snmp_v3_ctx_engine_id': 'snmp_v3_ctx_engine_id',
         'description': 'description'
     }
 
