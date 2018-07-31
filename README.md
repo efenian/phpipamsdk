@@ -6,12 +6,12 @@ No crypt API support, only HTTP/HTTPS with HTTPS recommended.
 You can try my [vagrant](https://github.com/efenian/vagrant-phpipam) to get
 an instance of phpipam up and running for testing with Virtualbox.
 
-Install:  
+__Install:__
 git clone https://github.com/efenian/phpipamsdk.git  
 cd phpipamsdk  
 pip install .  
 
-Uninstall:  
+__Uninstall:__ 
 pip uninstall phpipamsdk  
 
 Example Configuration Class File using app id of 'app':
