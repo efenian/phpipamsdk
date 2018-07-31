@@ -6,13 +6,13 @@ No crypt API support, only HTTP/HTTPS with HTTPS recommended.
 You can try my [vagrant](https://github.com/efenian/vagrant-phpipam) to get
 an instance of phpipam up and running for testing with Virtualbox.
 
-Install:
-git clone https://github.com/efenian/phpipamsdk.git
-cd phpipamsdk
-pip install .
+Install:  
+git clone https://github.com/efenian/phpipamsdk.git  
+cd phpipamsdk  
+pip install .  
 
-Uninstall:
-pip uninstall phpipamsdk
+Uninstall:  
+pip uninstall phpipamsdk  
 
 Example Configuration Class File using app id of 'app':
 ```python
@@ -84,7 +84,7 @@ if __name__ == "__main__":
 
 Example Output:
 
-```sh
+<pre><code>
  ./example.py
 My folder: 0.0.0.0/
 Business customers: 10.10.0.0/16
@@ -94,11 +94,11 @@ DHCP range: 10.65.22.0/24
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 My folder: 0.0.0.0/
 Business customers: 10.10.0.0/16
-<pre><b>API autocreated: 10.10.0.0/24</b></pre>
+<b>API autocreated: 10.10.0.0/24</b>
 Customer 1: 10.10.1.0/24
 Customer 2: 10.10.2.0/24
 DHCP range: 10.65.22.0/24
-```
+</code></pre>
 
 ---
 
