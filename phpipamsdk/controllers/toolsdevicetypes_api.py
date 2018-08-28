@@ -9,8 +9,8 @@ class ToolsDeviceTypesApi(object):
 
     _objmap = {
         'id': 'id',
-        'name': 'name',
-        'description': 'description'
+        'name': 'tname',
+        'description': 'tdescription'
     }
 
     def __init__(self, phpipam=None):
