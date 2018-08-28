@@ -10,10 +10,12 @@ class ToolsTagsApi(object):
     _objmap = {
         'id': 'id',
         'type': 'type',
-        'showtags': 'showtags',
+        'showtag': 'showtag',
         'bgcolor': 'bgcolor',
         'fgcolor': 'fgcolor',
-        'compress': 'compress'
+        'compress': 'compress',
+        'locked': 'locked',
+        'update_tag': 'updateTag'
     }
 
     def __init__(self, phpipam=None):

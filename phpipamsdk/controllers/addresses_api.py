@@ -22,6 +22,8 @@ class AddressesApi(object):
         'device_id': 'deviceId',
         'port': 'port',
         'note': 'note',
+        'location_id': 'location_id',
+        'firewall_address_object': 'firewallAddressObject',
         'exclude_ping': 'excludePing'
     }
 

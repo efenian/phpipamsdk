@@ -4,6 +4,7 @@
 import warnings
 import phpipamsdk
 
+
 def add_section(ipam=None, **kwargs):
     """ use API to add a section """
     sections_api = phpipamsdk.SectionsApi(phpipam=ipam)
@@ -20,9 +21,9 @@ def add_section(ipam=None, **kwargs):
     else:
         raise ValueError('Add Section Failed')
 
+
 def add_location(ipam=None, **kwargs):
     """ use API to add a location """
-
     locations_api = phpipamsdk.ToolsLocationsApi(phpipam=ipam)
 
     addresult = locations_api.add_tools_location(
@@ -35,9 +36,9 @@ def add_location(ipam=None, **kwargs):
     else:
         raise ValueError('Add Location Failed')
 
+
 def add_rack(ipam=None, **kwargs):
     """ use API to add a rack """
-
     racks_api = phpipamsdk.ToolsRacksApi(phpipam=ipam)
 
     addresult = racks_api.add_tools_rack(
@@ -50,6 +51,7 @@ def add_rack(ipam=None, **kwargs):
         return addresult['id']
     else:
         raise ValueError('Add Rack Failed')
+
 
 def add_device(ipam=None, **kwargs):
     """ use API to add a device """
@@ -73,6 +75,7 @@ def add_device(ipam=None, **kwargs):
     else:
         raise ValueError('Add Device Failed')
 
+
 def add_subnet(ipam=None, sect_id=None, loc_id=None, **kwargs):
     """ use API to add a subnet """
     subnets_api = phpipamsdk.SubnetsApi(phpipam=ipam)
@@ -90,6 +93,7 @@ def add_subnet(ipam=None, sect_id=None, loc_id=None, **kwargs):
     else:
         raise ValueError('Add Subnet Failed')
 
+
 def add_first_free_address(ipam=None, subnet_id=None, device_id=None, **kwargs):
     """ use API to add the first free address within a subnet """
     addresses_api = phpipamsdk.AddressesApi(phpipam=ipam)
@@ -104,6 +108,7 @@ def add_first_free_address(ipam=None, subnet_id=None, device_id=None, **kwargs):
         return addresult['id']
     else:
         raise ValueError('Add Address Failed')
+
 
 def add_first_free_subnet(
         ipam=None, subnet_id=None, mask=None, description=None, loc_id=None):
@@ -120,6 +125,7 @@ def add_first_free_subnet(
         return addresult['id']
     else:
         raise ValueError('Add Address Failed')
+
 
 if __name__ == "__main__":
     warnings.filterwarnings('ignore')

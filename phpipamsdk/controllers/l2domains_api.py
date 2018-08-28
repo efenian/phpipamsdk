@@ -10,7 +10,8 @@ class L2DomainsApi(object):
     _objmap = {
         'id': 'id',
         'name': 'name',
-        'description': 'description'
+        'description': 'description',
+        'sections': 'sections'
     }
 
     def __init__(self, phpipam=None):

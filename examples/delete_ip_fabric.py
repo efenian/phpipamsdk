@@ -9,6 +9,7 @@ from phpipamsdk.utils import get_tools_rack_id
 from phpipamsdk.utils import get_tools_location_id
 from phpipamsdk.utils import get_tools_device_id
 
+
 def del_section(ipam=None, name=None):
     """ Use API to delete a section """
     sections_api = phpipamsdk.SectionsApi(phpipam=ipam)
@@ -17,32 +18,33 @@ def del_section(ipam=None, name=None):
 
     sections_api.del_section(section_id=sect_id)
 
+
 def del_location(ipam=None, name=None):
     """ Use API to delete a location """
-
     locations_api = phpipamsdk.ToolsLocationsApi(phpipam=ipam)
 
     location_id = get_tools_location_id(ipam=ipam, name=name)
 
     locations_api.del_tools_location(location_id=location_id)
 
+
 def del_rack(ipam=None, name=None):
     """ Use API to delete a rack """
-
     racks_api = phpipamsdk.ToolsRacksApi(phpipam=ipam)
 
     rack_id = get_tools_rack_id(ipam=ipam, name=name)
 
     racks_api.del_tools_rack(rack_id=rack_id)
 
+
 def del_device(ipam=None, name=None):
     """ Use API to delete a device """
-
     devices_api = phpipamsdk.ToolsDevicesApi(phpipam=ipam)
 
     device_id = get_tools_device_id(ipam=ipam, name=name)
 
     devices_api.del_tools_device(device_id=device_id)
+
 
 if __name__ == "__main__":
     warnings.filterwarnings('ignore')

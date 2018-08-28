@@ -3,7 +3,7 @@
 import json
 import requests
 
-from configuration import Configuration
+from phpipamsdk.configuration import Configuration
 
 
 def build_payload(objmap=None, **kwargs):

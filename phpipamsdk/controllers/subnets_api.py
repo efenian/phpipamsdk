@@ -21,6 +21,7 @@ class SubnetsApi(object):
         'nameserver_id': 'nameserverId',
         'show_name': 'showName',
         'permissions': 'permissions',
+        'resolve_dns': 'resolveDNS',
         'dns_recursive': 'DNSrecursive',
         'dns_records': 'DNSrecords',
         'allow_requests': 'allowRequests',
@@ -29,8 +30,10 @@ class SubnetsApi(object):
         'discover_subnet': 'discoverSubnet',
         'is_folder': 'isFolder',
         'is_full': 'isFull',
+        'tag_id': 'tag',
         'state_id': 'state',
         'threshold': 'threshold',
+        'firewall_address_object': 'firewallAddressObject',
         'location_id': 'location'
     }
 

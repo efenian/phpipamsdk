@@ -12,7 +12,7 @@ class ToolsNameserversApi(object):
         'name': 'name',
         'namesrv1': 'namesrv1',
         'description': 'description',
-        'permissions': 'permissions'
+        'sections': 'sections'
     }
 
     def __init__(self, phpipam=None):

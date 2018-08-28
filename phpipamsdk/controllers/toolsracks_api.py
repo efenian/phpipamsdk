@@ -12,6 +12,8 @@ class ToolsRacksApi(object):
         'name': 'name',
         'location_id': 'location',
         'size': 'size',
+        'row': 'row',
+        'has_back': 'hasBack',
         'description': 'description'
     }
 
