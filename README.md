@@ -106,7 +106,7 @@ DHCP range: 10.65.22.0/24
 __Class PhpIpamApi__
 
 __methods:__  
-login()
+login()  
 get_token()  
 refresh_token()  
 logout()  
