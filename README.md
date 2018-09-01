@@ -14,6 +14,8 @@ pip install .
 __Uninstall:__  
 pip uninstall phpipamsdk  
 
+__Either use the configuration class or pass parameters to PhpIpamApi class constructor and login methods as shown in the scripts in the examples directory__
+
 __Example Configuration Class File using app id of 'app':__
 ```python
 """ configuration class """
@@ -104,8 +106,7 @@ DHCP range: 10.65.22.0/24
 __Class PhpIpamApi__
 
 __methods:__  
-login()  
-login()  
+login()
 get_token()  
 refresh_token()  
 logout()  
