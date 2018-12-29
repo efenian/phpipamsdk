@@ -10,6 +10,8 @@ __Install:__
 git clone https://github.com/efenian/phpipamsdk.git  
 cd phpipamsdk  
 pip install .  
+or
+python setup.py install --record files.txt
 
 __Uninstall:__  
 pip uninstall phpipamsdk  
