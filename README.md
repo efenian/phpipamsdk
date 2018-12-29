@@ -108,454 +108,556 @@ DHCP range: 10.65.22.0/24
 __Class PhpIpamApi__
 
 __methods:__  
-login()  
 get_token()  
-refresh_token()  
+login()  
 logout()  
+refresh_token()  
 
 ---
 
 __Class AddressesApi__
 
 __methods:__  
-get_address()  
-ping_address()  
-get_address_from_subnet()  
-search_address()  
-search_hostname()  
-get_address_first_free()  
-list_address_custom_fields()  
-list_address_tags()  
-get_address_tag()  
-list_addresses_tag()  
 add_address()  
 add_address_first_free()  
-update_address()  
 del_address()  
 del_address_subnet()  
+get_address()  
+get_address_first_free()  
+get_address_from_subnet()  
+get_address_tag()  
+list_address_custom_fields()  
+list_address_tags()  
+list_addresses_tag()  
+ping_address()  
+search_address()  
+search_address_linked()  
+search_address_mac()  
+search_hostname()  
+update_address()  
 
 
 __available parameters:__  
+description  
+device_id  
+exclude_ping  
+firewall_address_object  
+hostname  
 id  
-subnet_id  
 ip  
 is_gateway  
-description  
-hostname  
-mac  
-owner  
-tag_id  
-ptr_ignore  
-ptr_id  
-device_id  
-port  
-note  
-exclude_ping  
-
----
-
-__Class L2DomainsApi()__
-
-
-__methods:__  
-list_l2domains()  
-get_l2domain()  
-get_l2domain_vlans()  
-list_l2domain_custom_fields()  
-add_l2domain()  
-update_l2domain()  
-del_l2domain()  
-
-__available parameters:__  
-id  
-name  
-description  
-
----
-
-__Class PrefixesApi()__
-
-__methods:__  
-list_prefixes_subnets()  
-list_prefixes_subnets_version()  
-list_prefixes_address()  
-list_prefixes_address_version()  
-get_prefixes_first_free_subnet()  
-get_prefixes_first_free_address()  
-add_prefixes_first_free_subnet()  
-add_prefixes_first_free_address()  
-
-__available parameters:__  
-id  
-subnet  
-mask  
-description  
-section_id  
-linked_subnet_id  
-vlan_id  
-vrf_id  
-master_subnet_id  
-nameserver_id  
-show_name  
-permissions  
-dns_recursive  
-dns_records  
-allow_requests  
-scan_agent_id  
-ping_subnet  
-discover_subnet  
-is_folder  
-is_full  
-state_id  
-threshold  
 location_id  
-subnet_id  
-ip  
-is_gateway  
 mac  
-owner  
-tag_id  
-ptr_ignore  
-ptr_id  
-device_id  
-port  
 note  
-exclude_ping  
+owner  
+port  
+ptr_id  
+ptr_ignore  
+subnet_id  
+tag_id  
 
 ---
 
-__Class SectionsApi()__
+__Class CircuitsApi__
 
 __methods:__  
-list_sections()  
-list_section_subnets()  
-list_section_custom_fields()  
-get_section()  
-add_section()  
-update_section()  
-del_section()  
+add_circuit()  
+add_provider()  
+del_circuit()  
+del_provider()  
+get_circuit()  
+get_provider()  
+list_circuits()  
+list_providers()  
+update_circuit()  
+update_provider()  
+
 
 __available parameters:__  
+capacity  
+circuit_id  
+comment  
+contact  
+description  
+device1  
+device2  
 id  
+location1  
+location2  
 name  
-description  
-master_section_id  
-permissions  
-strict_mode  
-subnet_ordering  
-order  
-show_vlan  
-show_vrf  
-show_supernet_only  
-dns_id  
+provider  
+status  
+type  
 
 ---
 
-__Class SubnetsApi()__
+__Class DevicesApi__
 
 __methods:__  
-get_subnet()  
-get_subnet_usage()  
-list_subnet_slaves()  
-list_subnet_slaves_recursive()  
-list_subnet_addresses()  
-get_subnet_address()  
-get_subnet_first_free_address()  
-get_subnet_first_free_subnet()  
-list_subnet_free_subnets()  
-list_subnet_custom_fields()  
-list_subnets_cidr()  
-search_subnets_cidr()  
-add_subnet()  
-add_subnet_first_free()  
-update_subnet()  
-resize_subnet()  
-split_subnet()  
-update_subnet_permissions()  
-del_subnet()  
-del_subnet_addresses()  
-del_subnet_permissions()  
+add_device()  
+del_device()  
+get_device()  
+get_device_addresses()  
+get_device_subnets()  
+list_devices()  
+search_device()  
+update_device()  
 
 
 __available parameters:__  
-id  
-subnet  
-mask  
 description  
-section_id  
-linked_subnet_id  
-device_id  
-vlan_id  
-vrf_id  
-master_subnet_id  
-nameserver_id  
-show_name  
-permissions  
-dns_recursive  
-dns_records  
-allow_requests  
-scan_agent_id  
-ping_subnet  
-discover_subnet  
-is_folder  
-is_full  
-state_id  
-threshold  
-location_id
-
----
-
-__Class ToolsDevicesApi()__
-
-__methods:__  
-list_tools_devices()  
-get_tools_device()  
-add_tools_device()  
-update_tools_device()  
-del_tools_device()  
-
-__available parameters:__  
-id  
 hostname  
+id  
+ip  
 ip_addr  
-ip  
-type_id  
-vendor  
-model  
-sections  
 location_id  
+model  
 rack_id  
 rack_size  
 rack_start  
+sections  
 snmp_community  
 snmp_port  
 snmp_queries  
 snmp_timeout  
-snmp_version  
-snmp_v3_auth_protocol  
 snmp_v3_auth_pass  
-snmp_v3_priv_protocol  
-snmp_v3_priv_pass  
-snmp_v3_ctx_name  
+snmp_v3_auth_protocol  
 snmp_v3_ctx_engine_id  
-description  
+snmp_v3_ctx_name  
+snmp_v3_priv_pass  
+snmp_v3_priv_protocol  
+snmp_version  
+type_id  
+vendor  
 
 ---
 
-__Class ToolsDeviceTypesApi()__
+__Class L2DomainsApi__
 
 __methods:__  
-list_tools_devicetypes()  
-list_tools_devicetype_devices()  
-get_tools_devicetype()  
-add_tools_devicetype()  
-update_tools_devicetype()  
-del_tools_devicetype()  
+add_l2domain()  
+del_l2domain()  
+get_l2domain()  
+get_l2domain_vlans()  
+list_l2domain_custom_fields()  
+list_l2domains()  
+update_l2domain()  
+
 
 __available parameters:__  
+description  
 id  
 name  
-description  
+sections  
 
 ---
 
-__Class ToolsLocationsApi()__
+__Class PrefixesApi__
 
 __methods:__  
-list_tools_locations()  
+add_prefixes_first_free_address()  
+add_prefixes_first_free_subnet()  
+get_prefixes_first_free_address()  
+get_prefixes_first_free_subnet()  
+list_prefixes_address()  
+list_prefixes_address_version()  
+list_prefixes_subnets()  
+list_prefixes_subnets_version()  
+
+
+__available parameters:__  
+allow_requests  
+description  
+device_id  
+discover_subnet  
+dns_records  
+dns_recursive  
+exclude_ping  
+id  
+ip  
+is_folder  
+is_full  
+is_gateway  
+linked_subnet_id  
+location_id  
+mac  
+mask  
+master_subnet_id  
+nameserver_id  
+note  
+owner  
+permissions  
+ping_subnet  
+port  
+ptr_id  
+ptr_ignore  
+scan_agent_id  
+section_id  
+show_name  
+state_id  
+subnet  
+subnet_id  
+tag_id  
+threshold  
+vlan_id  
+vrf_id  
+
+---
+
+__Class SectionsApi__
+
+__methods:__  
+add_section()  
+del_section()  
+get_section()  
+list_section_custom_fields()  
+list_section_subnets()  
+list_sections()  
+update_section()  
+
+
+__available parameters:__  
+description  
+dns_id  
+id  
+master_section_id  
+name  
+order  
+permissions  
+show_supernet_only  
+show_vlan  
+show_vrf  
+strict_mode  
+subnet_ordering  
+
+---
+
+__Class SubnetsApi__
+
+__methods:__  
+add_subnet()  
+add_subnet_first_free()  
+add_subnet_last_free()  
+del_subnet()  
+del_subnet_addresses()  
+del_subnet_permissions()  
+get_subnet()  
+get_subnet_address()  
+get_subnet_first_free_address()  
+get_subnet_first_free_subnet()  
+get_subnet_last_free_subnet()  
+get_subnet_usage()  
+list_subnet_addresses()  
+list_subnet_custom_fields()  
+list_subnet_free_subnets()  
+list_subnet_slaves()  
+list_subnet_slaves_recursive()  
+list_subnets_cidr()  
+resize_subnet()  
+search_subnets_cidr()  
+split_subnet()  
+update_subnet()  
+update_subnet_permissions()  
+
+
+__available parameters:__  
+allow_requests  
+description  
+device_id  
+discover_subnet  
+dns_records  
+dns_recursive  
+firewall_address_object  
+id  
+is_folder  
+is_full  
+linked_subnet_id  
+location_id  
+mask  
+master_subnet_id  
+nameserver_id  
+permissions  
+ping_subnet  
+resolve_dns  
+scan_agent_id  
+section_id  
+show_name  
+state_id  
+subnet  
+tag_id  
+threshold  
+vlan_id  
+vrf_id  
+
+---
+
+__Class ToolsDeviceTypesApi__
+
+__methods:__  
+add_tools_devicetype()  
+del_tools_devicetype()  
+get_tools_devicetype()  
+list_tools_devicetype_devices()  
+list_tools_devicetypes()  
+update_tools_devicetype()  
+
+
+__available parameters:__  
+description  
+id  
+name  
+
+---
+
+__Class ToolsDevicesApi__
+
+__methods:__  
+add_tools_device()  
+del_tools_device()  
+get_tools_device()  
+list_tools_devices()  
+update_tools_device()  
+
+
+__available parameters:__  
+description  
+hostname  
+id  
+ip  
+ip_addr  
+location_id  
+model  
+rack_id  
+rack_size  
+rack_start  
+sections  
+snmp_community  
+snmp_port  
+snmp_queries  
+snmp_timeout  
+snmp_v3_auth_pass  
+snmp_v3_auth_protocol  
+snmp_v3_ctx_engine_id  
+snmp_v3_ctx_name  
+snmp_v3_priv_pass  
+snmp_v3_priv_protocol  
+snmp_version  
+type_id  
+vendor  
+
+---
+
+__Class ToolsLocationsApi__
+
+__methods:__  
+add_tools_location()  
+del_tools_location()  
 get_tools_location()  
-list_tools_location_subnets()  
 list_tools_location_devices()  
 list_tools_location_racks()  
-add_tools_location()  
+list_tools_location_subnets()  
+list_tools_locations()  
 update_tools_location()  
-del_tools_location()  
+
 
 __available parameters:__  
-id  
-name  
 address  
+description  
+id  
 lat  
 long  
-description  
-
----
-
-__Class ToolsNameserversApi()__
-
-__methods:__  
-list_tools_nameservers()  
-get_tools_nameserver()  
-add_tools_nameserver()  
-update_tools_nameserver()  
-del_tools_nameserver()  
-
-__available parameters:__  
-id  
 name  
-namesrv1  
-description  
-permissions  
 
 ---
 
-__Class ToolsNATApi()__
+__Class ToolsNATApi__
 
 __methods:__  
-list_tools_nats()  
+add_tools_nat()  
+del_tools_nat()  
 get_tools_nat()  
 list_tools_nat_objects()  
 list_tools_nat_objects_full()  
-add_tools_nat()  
+list_tools_nats()  
 update_tools_nat()  
-del_tools_nat()  
+
 
 __available parameters:__  
-id  
-name  
-type  
+description  
 device_id  
-src  
-src_port  
 dst  
 dst_port  
-description
+id  
+name  
+src  
+src_port  
+type  
 
 ---
 
-__Class ToolsRacksApi()__
+__Class ToolsNameserversApi__
 
 __methods:__  
-list_tools_racks()  
+add_tools_nameserver()  
+del_tools_nameserver()  
+get_tools_nameserver()  
+list_tools_nameservers()  
+update_tools_nameserver()  
+
+
+__available parameters:__  
+description  
+id  
+name  
+namesrv1  
+sections  
+
+---
+
+__Class ToolsRacksApi__
+
+__methods:__  
+add_tools_rack()  
+del_tools_rack()  
 get_tools_rack()  
 list_tools_rack_devices()  
-add_tools_rack()  
+list_tools_racks()  
 update_tools_rack()  
-del_tools_rack()  
+
 
 __available parameters:__  
-id  
-name  
-location_id  
-size  
-description
-
----
-
-__Class ToolsScanagentsApi()__
-
-__methods:__  
-list_tools_scanagents()  
-get_tools_scanagent()  
-add_tools_scanagent()  
-update_tools_scanagent()  
-del_tools_scanagent()  
-
-__available parameters:__  
-id  
-name  
-type  
 description  
-code  
-
----
-
-__Class ToolsTagsApi()__
-
-__methods:__  
-list_tools_tags()  
-get_tools_tag()  
-add_tools_tag()  
-update_tools_tag()  
-del_tools_tag()  
-
-__available parameters:__  
+has_back  
 id  
-type  
-showtags  
-bgcolor  
-fgcolor  
-compress
-
----
-
-__Class ToolsVlansApi()__
-
-__methods:__  
-list_tools_vlans()  
-get_tools_vlan()  
-list_tools_vlan_subnets()  
-add_tools_vlan()  
-update_tools_vlan()  
-del_vlan()  
-
-__available parameters:__  
-id  
-domain_id  
+location_id  
 name  
-number  
-description
+row  
+size  
 
 ---
 
-__Class ToolsVRFsApi()__
+__Class ToolsScanagentsApi__
 
 __methods:__  
-list_tools_vrfs()  
+add_tools_scanagent()  
+del_tools_scanagent()  
+get_tools_scanagent()  
+list_tools_scanagents()  
+update_tools_scanagent()  
+
+
+__available parameters:__  
+code  
+description  
+id  
+name  
+type  
+
+---
+
+__Class ToolsTagsApi__
+
+__methods:__  
+add_tools_tag()  
+del_tools_tag()  
+get_tools_tag()  
+list_tools_tags()  
+update_tools_tag()  
+
+
+__available parameters:__  
+bgcolor  
+compress  
+fgcolor  
+id  
+locked  
+showtag  
+type  
+update_tag  
+
+---
+
+__Class ToolsVRFsApi__
+
+__methods:__  
+add_tools_vrf()  
+del_vrf()  
 get_tools_vrf()  
 list_tools_vrf_subnets()  
-add_tools_vrf()  
+list_tools_vrfs()  
 update_tools_vrf()  
-del_vrf()  
+
 
 __available parameters:__  
+description  
 id  
 name  
 rd  
-description  
-sections
+sections  
 
 ---
 
-__Class VlansApi()__
+__Class ToolsVlansApi__
 
 __methods:__  
-list_vlans()  
-get_vlan()  
-list_vlan_subnets()  
-list_vlan_subnets_section()  
-list_vlan_custom_fields()  
-search_vlans()  
-add_vlan()  
-update_vlan()  
+add_tools_vlan()  
 del_vlan()  
+get_tools_vlan()  
+list_tools_vlan_subnets()  
+list_tools_vlans()  
+update_tools_vlan()  
+
 
 __available parameters:__  
-id  
+description  
 domain_id  
+id  
 name  
 number  
-description  
 
 ---
 
-__Class VRFsApi()__
+__Class VRFsApi__
 
 __methods:__  
-list_vrfs()  
-get_vrf()  
-list_vrf_subnets()  
-list_vrf_custom_fields()  
 add_vrf()  
-update_vrf()  
 del_vrf()  
+get_vrf()  
+list_vrf_custom_fields()  
+list_vrf_subnets()  
+list_vrfs()  
+update_vrf()  
+
 
 __available parameters:__  
+description  
 id  
 name  
 rd  
-description  
 sections  
+
+---
+
+__Class VlansApi__
+
+__methods:__  
+add_vlan()  
+del_vlan()  
+get_vlan()  
+list_vlan_custom_fields()  
+list_vlan_subnets()  
+list_vlan_subnets_section()  
+list_vlans()  
+search_vlans()  
+update_vlan()  
+
+
+__available parameters:__  
+description  
+domain_id  
+id  
+name  
+number   
 
 ---
 
@@ -565,6 +667,7 @@ get_tools_location_id()
 get_tools_rack_id()  
 get_tools_devicetype_id()  
 get_tools_device_id()  
+get_device_id()  
 get_section_id()  
 get_l2domain_id()  
 get_vlan_id()  
