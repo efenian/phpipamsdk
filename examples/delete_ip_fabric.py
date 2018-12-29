@@ -8,7 +8,6 @@ from phpipamsdk.utils import get_section_id
 from phpipamsdk.utils import get_device_id
 from phpipamsdk.utils import get_tools_rack_id
 from phpipamsdk.utils import get_tools_location_id
-from phpipamsdk.utils import get_tools_device_id
 
 
 def del_section(ipam=None, name=None):
