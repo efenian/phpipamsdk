@@ -391,24 +391,6 @@ vrf_id
 
 ---
 
-__Class ToolsDeviceTypesApi__
-
-__methods:__  
-add_tools_devicetype()  
-del_tools_devicetype()  
-get_tools_devicetype()  
-list_tools_devicetype_devices()  
-list_tools_devicetypes()  
-update_tools_devicetype()  
-
-
-__available parameters:__  
-description  
-id  
-name  
-
----
-
 __Class ToolsDevicesApi__
 
 __methods:__  
@@ -447,6 +429,24 @@ vendor
 
 ---
 
+__Class ToolsDeviceTypesApi__
+
+__methods:__  
+add_tools_devicetype()  
+del_tools_devicetype()  
+get_tools_devicetype()  
+list_tools_devicetype_devices()  
+list_tools_devicetypes()  
+update_tools_devicetype()  
+
+
+__available parameters:__  
+description  
+id  
+name  
+
+---
+
 __Class ToolsLocationsApi__
 
 __methods:__  
@@ -467,6 +467,25 @@ id
 lat  
 long  
 name  
+
+---
+
+__Class ToolsNameserversApi__
+
+__methods:__  
+add_tools_nameserver()  
+del_tools_nameserver()  
+get_tools_nameserver()  
+list_tools_nameservers()  
+update_tools_nameserver()  
+
+
+__available parameters:__  
+description  
+id  
+name  
+namesrv1  
+sections  
 
 ---
 
@@ -492,25 +511,6 @@ name
 src  
 src_port  
 type  
-
----
-
-__Class ToolsNameserversApi__
-
-__methods:__  
-add_tools_nameserver()  
-del_tools_nameserver()  
-get_tools_nameserver()  
-list_tools_nameservers()  
-update_tools_nameserver()  
-
-
-__available parameters:__  
-description  
-id  
-name  
-namesrv1  
-sections  
 
 ---
 
@@ -577,26 +577,6 @@ update_tag
 
 ---
 
-__Class ToolsVRFsApi__
-
-__methods:__  
-add_tools_vrf()  
-del_vrf()  
-get_tools_vrf()  
-list_tools_vrf_subnets()  
-list_tools_vrfs()  
-update_tools_vrf()  
-
-
-__available parameters:__  
-description  
-id  
-name  
-rd  
-sections  
-
----
-
 __Class ToolsVlansApi__
 
 __methods:__  
@@ -617,16 +597,15 @@ number
 
 ---
 
-__Class VRFsApi__
+__Class ToolsVRFsApi__
 
 __methods:__  
-add_vrf()  
+add_tools_vrf()  
 del_vrf()  
-get_vrf()  
-list_vrf_custom_fields()  
-list_vrf_subnets()  
-list_vrfs()  
-update_vrf()  
+get_tools_vrf()  
+list_tools_vrf_subnets()  
+list_tools_vrfs()  
+update_tools_vrf()  
 
 
 __available parameters:__  
@@ -657,7 +636,28 @@ description
 domain_id  
 id  
 name  
-number   
+number  
+
+---
+
+__Class VRFsApi__
+
+__methods:__  
+add_vrf()  
+del_vrf()  
+get_vrf()  
+list_vrf_custom_fields()  
+list_vrf_subnets()  
+list_vrfs()  
+update_vrf()  
+
+
+__available parameters:__  
+description  
+id  
+name  
+rd  
+sections  
 
 ---
 
