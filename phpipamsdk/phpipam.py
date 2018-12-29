@@ -41,9 +41,11 @@ class PhpIpamApi(object):
         if api_appcode is None:
             if Configuration().api_appcode:
                 self._api_token = Configuration().api_appcode
+                self._api_headers['phpipam-token'] = self._api_token
                 self._api_appcode_auth = True
         else:
             self._api_token = api_appcode
+            self._api_headers['phpipam-token'] = self._api_token
             self._api_appcode_auth = True
         if api_verify_ssl is None:
             self._api_verify_ssl = Configuration().api_verify_ssl
@@ -78,31 +80,34 @@ class PhpIpamApi(object):
     def login(self, auth=None):
         """ authenticate to API """
         if self._api_appcode_auth:
-            self._api_headers['phpipam-token'] = self._api_token
             return
         if auth is None:
             auth = (Configuration().api_username, Configuration().api_password)
         result = self.api_send_request(path='user/', auth=auth, method='post')
         self._api_token = result['data']['token']
         self._api_headers['phpipam-token'] = self._api_token
+        return result
 
     def get_token(self):
         """ get auth token """
         if self._api_appcode_auth:
             return
         uri = 'user/'
-        self.api_send_request(path=uri, method='get')
+        result = self.api_send_request(path=uri, method='get')
+        return result
 
     def refresh_token(self):
         """ refresh auth token """
         if self._api_appcode_auth:
             return
         uri = 'user/'
-        self.api_send_request(path=uri, method='patch')
+        result = self.api_send_request(path=uri, method='patch')
+        return result
 
     def logout(self):
         """ delete session """
         if self._api_appcode_auth:
             return
         uri = 'user/'
-        self.api_send_request(path=uri, method='delete')
+        result = self.api_send_request(path=uri, method='delete')
+        return result
