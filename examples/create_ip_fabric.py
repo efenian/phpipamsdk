@@ -55,9 +55,9 @@ def add_rack(ipam=None, **kwargs):
 
 def add_device(ipam=None, **kwargs):
     """ use API to add a device """
-    devices_api = phpipamsdk.ToolsDevicesApi(phpipam=ipam)
+    devices_api = phpipamsdk.DevicesApi(phpipam=ipam)
 
-    addresult = devices_api.add_tools_device(
+    addresult = devices_api.add_device(
         hostname=kwargs['hostname'],
         ip=kwargs['ip'],
         sections=kwargs['sections'],

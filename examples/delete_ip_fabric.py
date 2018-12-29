@@ -5,6 +5,7 @@ import warnings
 import phpipamsdk
 
 from phpipamsdk.utils import get_section_id
+from phpipamsdk.utils import get_device_id
 from phpipamsdk.utils import get_tools_rack_id
 from phpipamsdk.utils import get_tools_location_id
 from phpipamsdk.utils import get_tools_device_id
@@ -39,11 +40,11 @@ def del_rack(ipam=None, name=None):
 
 def del_device(ipam=None, name=None):
     """ Use API to delete a device """
-    devices_api = phpipamsdk.ToolsDevicesApi(phpipam=ipam)
+    devices_api = phpipamsdk.DevicesApi(phpipam=ipam)
 
-    device_id = get_tools_device_id(ipam=ipam, name=name)
+    device_id = get_device_id(ipam=ipam, name=name)
 
-    devices_api.del_tools_device(device_id=device_id)
+    devices_api.del_device(device_id=device_id)
 
 
 if __name__ == "__main__":

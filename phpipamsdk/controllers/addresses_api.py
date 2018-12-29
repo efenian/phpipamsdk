@@ -57,6 +57,18 @@ class AddressesApi(object):
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
+    def search_address_mac(self, mac=''):
+        """ search IP address by MAC """
+        uri = 'addresses/search_mac/' + str(mac) + '/'
+        result = self.phpipam.api_send_request(path=uri, method='get')
+        return result
+
+    def search_address_linked(self, linked=''):
+        """ search IP address by linked_field """
+        uri = 'addresses/search_linked/' + str(linked) + '/'
+        result = self.phpipam.api_send_request(path=uri, method='get')
+        return result
+
     def search_hostname(self, hostname=''):
         """ search for hostname """
         uri = 'addresses/search/' + str(hostname) + '/'

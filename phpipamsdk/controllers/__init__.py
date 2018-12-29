@@ -2,6 +2,7 @@
 
 from phpipamsdk.controllers.addresses_api import AddressesApi
 from phpipamsdk.controllers.circuits_api import CircuitsApi
+from phpipamsdk.controllers.devices_api import DevicesApi
 from phpipamsdk.controllers.l2domains_api import L2DomainsApi
 from phpipamsdk.controllers.prefixes_api import PrefixesApi
 from phpipamsdk.controllers.sections_api import SectionsApi

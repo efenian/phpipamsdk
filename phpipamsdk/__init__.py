@@ -5,6 +5,7 @@ Eric Donohue
 
 from phpipamsdk.controllers import AddressesApi
 from phpipamsdk.controllers import CircuitsApi
+from phpipamsdk.controllers import DevicesApi
 from phpipamsdk.controllers import L2DomainsApi
 from phpipamsdk.controllers import PrefixesApi
 from phpipamsdk.controllers import SectionsApi
