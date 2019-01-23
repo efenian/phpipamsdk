@@ -121,6 +121,12 @@ class SubnetsApi(object):
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
+    def search_subnets_overlapping(self, subnet_cidr=''):
+        """ searches for overlapping subnets based on CIDR notation """
+        uri = 'subnets/overlapping/' + subnet_cidr + '/'
+        result = self.phpipam.api_send_request(path=uri, method='get')
+        return result
+
     def add_subnet(self, subnet='', mask='', **kwargs):
         """ add new subnet """
         payload = {
