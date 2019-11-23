@@ -54,7 +54,7 @@ class ToolsNameserversApi(object):
         return result
 
     def del_tools_nameserver(self, nameserver_id=''):
-        """ get nameserver """
+        """ delete nameserver """
         uri = 'tools/nameservers/' + str(nameserver_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='delete')
         return result

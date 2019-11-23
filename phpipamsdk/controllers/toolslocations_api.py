@@ -29,7 +29,7 @@ class ToolsLocationsApi(object):
         return result
 
     def get_tools_location(self, location_id=''):
-        """ get locations list """
+        """ get location """
         uri = 'tools/locations/' + str(location_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
@@ -73,7 +73,7 @@ class ToolsLocationsApi(object):
         return result
 
     def del_tools_location(self, location_id=''):
-        """ get location """
+        """ delete location """
         uri = 'tools/locations/' + str(location_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='delete')
         return result

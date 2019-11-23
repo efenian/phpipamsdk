@@ -66,7 +66,7 @@ class VRFsApi(object):
         return result
 
     def del_vrf(self, vrf_id=''):
-        """ delete l2domain """
+        """ delete vrf """
         uri = 'vrfs/' + str(vrf_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='delete')
         return result

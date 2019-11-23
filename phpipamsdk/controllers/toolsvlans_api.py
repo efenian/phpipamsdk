@@ -28,7 +28,7 @@ class ToolsVlansApi(object):
         return result
 
     def get_tools_vlan(self, vlan_id=''):
-        """ get vlan list """
+        """ get vlan """
         uri = 'tools/vlans/' + str(vlan_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result

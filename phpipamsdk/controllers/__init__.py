@@ -7,6 +7,7 @@ from phpipamsdk.controllers.l2domains_api import L2DomainsApi
 from phpipamsdk.controllers.prefixes_api import PrefixesApi
 from phpipamsdk.controllers.sections_api import SectionsApi
 from phpipamsdk.controllers.subnets_api import SubnetsApi
+from phpipamsdk.controllers.toolscustomers_api import ToolsCustomersApi
 from phpipamsdk.controllers.toolsdevices_api import ToolsDevicesApi
 from phpipamsdk.controllers.toolsdevicetypes_api import ToolsDeviceTypesApi
 from phpipamsdk.controllers.toolslocations_api import ToolsLocationsApi

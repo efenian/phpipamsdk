@@ -30,7 +30,7 @@ class ToolsRacksApi(object):
         return result
 
     def get_tools_rack(self, rack_id=''):
-        """ get racks list """
+        """ get rack """
         uri = 'tools/racks/' + str(rack_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
@@ -62,7 +62,7 @@ class ToolsRacksApi(object):
         return result
 
     def del_tools_rack(self, rack_id=''):
-        """ get rack """
+        """ delete rack """
         uri = 'tools/racks/' + str(rack_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='delete')
         return result

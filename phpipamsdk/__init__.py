@@ -10,6 +10,7 @@ from phpipamsdk.controllers import L2DomainsApi
 from phpipamsdk.controllers import PrefixesApi
 from phpipamsdk.controllers import SectionsApi
 from phpipamsdk.controllers import SubnetsApi
+from phpipamsdk.controllers import ToolsCustomersApi
 from phpipamsdk.controllers import ToolsDevicesApi
 from phpipamsdk.controllers import ToolsDeviceTypesApi
 from phpipamsdk.controllers import ToolsLocationsApi

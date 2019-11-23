@@ -28,7 +28,7 @@ class ToolsVRFsApi(object):
         return result
 
     def get_tools_vrf(self, vrf_id=''):
-        """ get vrf list """
+        """ get vrf """
         uri = 'tools/vrfs/' + str(vrf_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result

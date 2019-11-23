@@ -32,7 +32,7 @@ class ToolsNATApi(object):
         return result
 
     def get_tools_nat(self, nat_id=''):
-        """ get nat list """
+        """ get nat """
         uri = 'tools/nat/' + str(nat_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
@@ -70,7 +70,7 @@ class ToolsNATApi(object):
         return result
 
     def del_tools_nat(self, nat_id=''):
-        """ get nat """
+        """ delete nat """
         uri = 'tools/nat/' + str(nat_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='delete')
         return result

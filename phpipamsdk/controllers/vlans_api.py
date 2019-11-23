@@ -29,7 +29,7 @@ class VlansApi(object):
         return result
 
     def get_vlan(self, vlan_id=''):
-        """ list vlans """
+        """ get vlan """
         uri = 'vlans/' + str(vlan_id) + '/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
