@@ -71,7 +71,7 @@ class AddressesApi(object):
 
     def search_hostname(self, hostname=''):
         """ search for hostname """
-        uri = 'addresses/search/' + str(hostname) + '/'
+        uri = 'addresses/search_hostname/' + str(hostname) + '/'
         result = self.phpipam.api_send_request(path=uri, method='get')
         return result
 
