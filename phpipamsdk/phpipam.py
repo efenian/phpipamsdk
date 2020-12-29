@@ -9,7 +9,7 @@ from phpipamsdk.configuration import Configuration
 def build_payload(objmap=None, **kwargs):
     """ build the REST payload """
     payload = {}
-    for key, val in kwargs.items():
+    for key, val in list(kwargs.items()):
         if key in objmap:
             payload[objmap[key]] = val
     return payload
