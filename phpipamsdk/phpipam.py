@@ -1,6 +1,7 @@
 """ Eric Donohue's PhpIPAM SDK """
 
 import json
+
 import requests
 
 from phpipamsdk.configuration import Configuration

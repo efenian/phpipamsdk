@@ -1,7 +1,6 @@
 """ VRFs Api Calls """
 
-from phpipamsdk.phpipam import PhpIpamApi
-from phpipamsdk.phpipam import build_payload
+from phpipamsdk.phpipam import PhpIpamApi, build_payload
 
 
 class VRFsApi(object):
