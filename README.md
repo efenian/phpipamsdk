@@ -40,10 +40,10 @@ __Example Script (also some scripts in examples directory):__
 """ Example """
 
 import warnings
-import phpipamsdk
 
-from phpipamsdk.utils import get_subnet_id
-from phpipamsdk.utils import get_section_id
+import phpipamsdk
+from phpipamsdk.utils import get_section_id, get_subnet_id
+
 
 def list_subnets(ipam=None, section_name=None):
     """ get and print out section subnets """
@@ -55,7 +55,9 @@ def list_subnets(ipam=None, section_name=None):
 
     if 'data' in subnetlist:
         for item in subnetlist['data']:
-            print item['description'] + ": " + item['subnet'] + "/" + item['mask']
+            print('{}: {}/{}'.format(
+                item['description'], item['subnet'], item['mask']))
+
 
 def add_first_free_subnet(
         ipam=None, section_name=None, master_subnet_cidr=None, mask=None):
@@ -71,6 +73,7 @@ def add_first_free_subnet(
         subnet_id=master_subnet_id,
         mask=mask)
 
+
 if __name__ == "__main__":
     warnings.filterwarnings('ignore')
     IPAM = phpipamsdk.PhpIpamApi()
@@ -80,7 +83,7 @@ if __name__ == "__main__":
     add_first_free_subnet(
         ipam=IPAM, section_name='Customers',
         master_subnet_cidr="10.10.0.0/16", mask="24")
-    print '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+    print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
     list_subnets(ipam=IPAM, section_name='Customers')
 
     IPAM.logout()
